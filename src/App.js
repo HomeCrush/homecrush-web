@@ -3,6 +3,8 @@ import Home from './Components/Home';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import SearchPage from './Components/SearchPage';
+import { PropertyForm } from "./Components/PropertyForm";
+import { PropertyFormTwo } from "./Components/PropertyFormTwo";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -16,10 +18,15 @@ function App() {
           <Header />
 
         <Switch> 
-          <Route path="/search">
+          <Route exact path="/search">
             <SearchPage />
           </Route>
-          <Route path="/">
+          
+          <Route exact path="/propertyform" component ={ PropertyForm } />
+
+          <Route path="/propertyformtwo" component ={ PropertyForm } />
+
+          <Route exact path="/">
              <Home /> 
              <Footer />
           </Route>
