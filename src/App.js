@@ -3,6 +3,7 @@ import Home from './Components/Home';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import SearchPage from './Components/SearchPage';
+import SwipeButtons from './Components/SwipeButtons';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -18,6 +19,7 @@ function App() {
         <Switch> 
           <Route path="/search">
             <SearchPage />
+            <SwipeButtons />
           </Route>
           <Route path="/">
              <Home /> 
