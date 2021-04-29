@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import { getProperties, like, reject } from "../Services/PropertiesService";
 import TinderCard from "react-tinder-card"
+import CloseIcon from "@material-ui/icons/Close";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import IconButton from "@material-ui/core/IconButton";
+import "./SwipeButtons.css";
 import './SearchResult.css'
 
 function SearchResult() {
@@ -15,13 +19,22 @@ function SearchResult() {
     }, []);
 
     const swiped = (id, dir) => {
-        
-        //hacer el reject
+
         if(dir === "left"){
-           reject(id).then(() => setCurrentProperty(currentProperty + 1))
+           /*reject(id).then(( aqui va todo lo de abajo currentProperty) => setCurrentProperty(currentProperty + 1))*/
+            if(currentProperty < properties.length - 1) {
+                setCurrentProperty(currentProperty + 1);
+            } else {
+                setCurrentProperty(0);
+            }
         }
         else {
-           like(id).then(() =>  setCurrentProperty((prevState) => prevState + 1 ))
+           /*like(id).then(() =>  setCurrentProperty((prevState) => prevState + 1 ))*/
+           if(currentProperty < properties.length - 1) {
+            setCurrentProperty(currentProperty + 1);
+             } else {
+            setCurrentProperty(0);
+        }
         }
      }
 
@@ -31,6 +44,7 @@ function SearchResult() {
    const property = properties[currentProperty]
 
     return (
+        
         <div className='searchResult'>
             <div className='searchResult_cardContainer'>
                 
@@ -39,18 +53,23 @@ function SearchResult() {
                     key={property.title}
                     preventSwipe={["up", "down"]}
                     onSwipe={(dir) => swiped(property.id, dir)
-                    }
-                    >
+                    }>
                         <div 
                         style={{ backgroundImage: `url(${property.images})` }}
                         className='searchResultCard'
                         >
                             <h3>{property.title}</h3>
-                          
                         </div>
-
                     </TinderCard>
             </div>
+            <div className='swipeButtons'>
+                <IconButton  className="swipeButtons_left">
+                    <CloseIcon onClick={() => swiped('left')}/>
+                 </IconButton>
+                <IconButton className="swipeButtons_right">
+                     <FavoriteIcon onClick={() => swiped('right')}/>
+                 </IconButton>
+             </div>
         </div>
     )
 }

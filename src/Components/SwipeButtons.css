@@ -1,6 +1,6 @@
 .swipeButtons {
-    position: fixed;
-    bottom: 0.1vh;
+    position: absolute;
+    margin-top: 320px;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -18,3 +18,52 @@
     padding: 3vw !important;
     color: #44A1A0 !important;
 }
+
+@media screen and (max-width: 1024px) {
+    .swipeButtons {
+      margin-top: 700px;
+    }
+  }
+
+@media screen and (max-width: 960px) {
+    .swipeButtons {
+      margin-top: 300px;
+    }
+  }
+ @media screen and (max-width: 768px) {
+    .swipeButtons {
+    margin-top: 550px;
+  }
+}
+@media screen and (max-width: 705px) {
+    .swipeButtons {
+      margin-top: 300px;
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .swipeButtons {
+      margin-top: 450px;
+    }
+  }
+@media screen and (max-width: 380px) {
+    .swipeButtons {
+      margin-top: 450px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .swipeButtons {
+      margin-top: 420px;
+    }
+  }
+ 
+  @media screen and (max-width: 320px) {
+    .swipeButtons {
+      margin-top: 300px;
+    }
+  }
+ 
+ 
+ 
+ 

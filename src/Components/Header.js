@@ -1,29 +1,13 @@
 import React from 'react'
 import './Header.css'
-import SearchIcon from "@material-ui/icons/Search";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Avatar } from "@material-ui/core"
+import Banner from './Banner';
+import Navbar from './Navbar';
 
 function Header() {
     return (
-        <div className='header'>
-            <img
-            className="header_icon"
-            src="https://i.imgur.com/q1irFMR.png"
-            alt=""
-            />
-
-        <div className='header_center'>
-            <input type="text"/>
-            <SearchIcon/>
-        </div>
-
-        <div className='header_right'>
-            <p>Let's share!</p>
-            <ExpandMoreIcon/>
-            <Avatar/>
-        </div>
-
+        <div className='h'>
+        <Navbar />
+        < Banner />
       </div>
     )
 }
