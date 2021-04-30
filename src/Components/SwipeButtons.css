@@ -24,9 +24,17 @@
     margin-top: 650px;
   }
 }
+
+/*@media screen and (max-width: 1365px) and (max-height: 627px)  {
+  .swipeButtons {
+    margin-top: 450px;
+  }
+}*/
+
+
 @media screen and (max-width: 1024px) {
     .swipeButtons {
-      margin-top: 320px;
+      margin-top: 150px;
     }
   }
 
@@ -57,11 +65,12 @@
     }
   }
 
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 375px) and (max-height: 667px) {
     .swipeButtons {
-      margin-top: 420px;
+      margin-top: 350px;
     }
   }
+
  
   @media screen and (max-width: 320px) {
     .swipeButtons {

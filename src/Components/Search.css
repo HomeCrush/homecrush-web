@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 559px;
+    width: 332px;
     padding: 10px;
     background-color: white;
     position: absolute;
@@ -20,7 +20,7 @@
 }
 
 .search > input {
-    width: 539px;
+    width: 332px;
     padding: 20px;
     position: absolute;
     left: 0;
@@ -36,14 +36,28 @@
 .search > button {
     position: absolute;
     left: 0;
-    top: 435px;
+    top: 413px;
     text-transform: inherit !important;
     background-color: #0D5C63;
     color: white;
-    width: 579px;
+    width: 332px;
   }
 
 .search > button:hover {
     background-color:#00A896;
     color: #F0F3BD;
 }
+
+@media screen and (max-width: 375px) {
+.search {
+    left: 1%;
+
+}
+}
+
+@media screen and (max-width: 414px) {
+    .search {
+        left: 0.75%;
+    
+    }
+    }

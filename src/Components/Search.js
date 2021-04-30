@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Search.css';
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { DateRangePicker } from "react-date-range";
+import { DateRange } from "react-date-range";
 import { Button } from '@material-ui/core';
 import PeopleIcon from '@material-ui/icons/People';
 
@@ -24,7 +24,7 @@ function Search() {
 
     return (
         <div className='search'>
-             <DateRangePicker ranges={[selectionRange]} onChange={handleSelect}/>
+             <DateRange ranges={[selectionRange]} onChange={handleSelect}/>
              <h2>
                  Number of beds <PeopleIcon />
              </h2>
