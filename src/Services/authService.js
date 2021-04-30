@@ -7,3 +7,7 @@ const http = create({
 export const login = (body) => {
     return http.post('/login', body)
 }
+
+export const signUp = (body) => {
+    return http.post("/register", body);
+};

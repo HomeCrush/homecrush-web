@@ -12,8 +12,8 @@ import { useForm } from "react-hook-form"
 import { useHistory } from "react-router-dom";
 
 
-import { login } from "../../Services/authService";
 import { setAccessToken } from "../../Store/AccessTokenStore";
+import { signUp } from "../../Services/authService";
 
 
 const Copyright = () => {
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   form: {
-    width: "100%", 
+    width: "100%",
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -60,23 +60,23 @@ const useStyles = makeStyles((theme) => ({
       background: "#0D5C63",
     },
   },
-  icon:{
-    height:100
-  }
+  icon: {
+    height: 100,
+  },
 }));
 
-const Login = ({ doLogin }) => {
+const SignUp = ({ doRegister }) => {
 
   const { push } = useHistory()
   const classes = useStyles();
   const { register, handleSubmit } =  useForm()
 
   const onSubmit = (data) => {
-    login(data)
+    signUp(data)
       .then(response => {
         setAccessToken(response.access_token)
-        doLogin()
-          .then(() => push("/"))        
+        doRegister()
+          .then(() => push("/search"))        
       })
   }
 
@@ -94,7 +94,7 @@ const Login = ({ doLogin }) => {
             />
           </Grid>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign up
           </Typography>
           <form
             className={classes.form}
@@ -132,12 +132,12 @@ const Login = ({ doLogin }) => {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               <Grid>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/signin" variant="body2">
+                  {"Already have an account? Log in"}
                 </Link>
               </Grid>
             </Grid>
@@ -151,4 +151,4 @@ const Login = ({ doLogin }) => {
   );
 }
 
-export default Login
+export default SignUp
