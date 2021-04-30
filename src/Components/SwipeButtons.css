@@ -19,9 +19,14 @@
     color: #44A1A0 !important;
 }
 
+@media screen and (max-width: 1920px) {
+  .swipeButtons {
+    margin-top: 650px;
+  }
+}
 @media screen and (max-width: 1024px) {
     .swipeButtons {
-      margin-top: 700px;
+      margin-top: 320px;
     }
   }
 
@@ -43,7 +48,7 @@
 
   @media screen and (max-width: 414px) {
     .swipeButtons {
-      margin-top: 450px;
+      margin-top: 400px;
     }
   }
 @media screen and (max-width: 380px) {

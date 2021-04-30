@@ -3,6 +3,9 @@
     padding: 20px;
     background-color: #78CDD7;
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    width:100%;
 }
 
 .footer > p {
