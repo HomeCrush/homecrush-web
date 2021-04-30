@@ -27,7 +27,7 @@ export const create = (opts = {}) => {
       ) {
         logout();
         return;
-      } else if (error.response.status === 403) {
+      } else if ( error.response && error.response.status === 403) {
         window.location.assign("/");
       }
 

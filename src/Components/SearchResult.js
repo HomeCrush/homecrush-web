@@ -1,63 +1,75 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router-dom"
+import { getProperties, like, reject } from "../Services/PropertiesService";
 import TinderCard from "react-tinder-card"
+import CloseIcon from "@material-ui/icons/Close";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import IconButton from "@material-ui/core/IconButton";
+import "./SwipeButtons.css";
 import './SearchResult.css'
 
-
 function SearchResult() {
-    const [properties, setProperties] = useState([
-        {
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU",
-            location: "Private room in center of London",
-            name:"Stay at this spacious Edwardian House",
-            description: "1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine",
 
-        },
-        {
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU",
-            location: "Private room in center of London",
-            name:"Stay at this spacious Edwardian House",
-            description: "1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine",
-        },
-        {
-            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU",
-            location: "Private room in center of London",
-            name:"Stay at this spacious Edwardian House",
-            description: "1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine",
+    const [properties, setProperties] = useState([]);
+
+    const [currentProperty, setCurrentProperty] = useState(0); //es 0 porque este array quiero q me muestra la priemra properry
+   
+    useEffect(() => {
+        getProperties().then((properties) => setProperties(properties));
+    }, []);
+
+    const swiped = (id, dir) => {
+
+        if(dir === "left"){
+           /*reject(id).then(( aqui va todo lo de abajo currentProperty) => setCurrentProperty(currentProperty + 1))*/
+            if(currentProperty < properties.length - 1) {
+                setCurrentProperty(currentProperty + 1);
+            } else {
+                setCurrentProperty(0);
+            }
         }
-    ]);
+        else {
+           /*like(id).then(() =>  setCurrentProperty((prevState) => prevState + 1 ))*/
+           if(currentProperty < properties.length - 1) {
+            setCurrentProperty(currentProperty + 1);
+             } else {
+            setCurrentProperty(0);
+        }
+        }
+     }
 
-    const swiped = (direction, titleToDelete) => {
-       console.log("removing" + titleToDelete)
+    if(!properties.length){
+        return "Loading...";
     }
-
-    const outOfFrame = (title) => {
-        console.log(title + 'left the screen')
-    }
+   const property = properties[currentProperty]
 
     return (
+        
         <div className='searchResult'>
             <div className='searchResult_cardContainer'>
-                {properties.map((property)=> (
+                
                     <TinderCard
                     className='swipe'
-                    key={property.name}
+                    key={property.title}
                     preventSwipe={["up", "down"]}
-                    onSwipe={(dir) => swiped(dir, property.name)}
-                    onCardLeftScreen={()=> outOfFrame(property.name)}
-                    >
+                    onSwipe={(dir) => swiped(property.id, dir)
+                    }>
                         <div 
-                        style={{ backgroundImage: `url(${property.url})` }}
+                        style={{ backgroundImage: `url(${property.images})` }}
                         className='searchResultCard'
                         >
-                            <h3>{property.name}</h3>
-                            <h5>{property.location}</h5>
-                            <h6>{property.description}</h6>
-                          
+                            <h3>{property.title}</h3>
                         </div>
-
                     </TinderCard>
-                ))}
             </div>
+            <div className='swipeButtons'>
+                <IconButton  className="swipeButtons_left">
+                    <CloseIcon onClick={() => swiped('left')}/>
+                 </IconButton>
+                <IconButton className="swipeButtons_right">
+                     <FavoriteIcon onClick={() => swiped('right')}/>
+                 </IconButton>
+             </div>
         </div>
     )
 }
