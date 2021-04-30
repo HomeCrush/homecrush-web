@@ -1,4 +1,4 @@
-import { Route, Switch, useHistory } from "react-router";
+import { Route, Switch } from "react-router";
 
 import './App.css';
 import Home from './Components/Home';
