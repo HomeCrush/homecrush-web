@@ -9,10 +9,6 @@ function SearchPage() {
            <div
            className='searchPage_info'> 
             <p> Here should be the range of days</p>
-            <h1> Stays </h1>
-                <Button variant="outlined">Type of place</Button>
-                <Button variant="outlined">Rooms and beds</Button>
-                <Button variant="outlined">More filters</Button>
            </div>
            <SearchResult
             img= "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU"
