@@ -4,7 +4,8 @@ import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import SearchPage from './Components/SearchPage';
 
-
+import { PropertyForm } from "./Components/PropertyForm";
+import { PropertyFormTwo } from "./Components/PropertyFormTwo";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -18,12 +19,14 @@ function App() {
          
 
         <Switch> 
+
           <Route path="/search">
             <Navbar />
             <SearchPage />  
           </Route>
           <Route path="/">
           <Header />
+
              <Footer />
           </Route>
           </Switch> 
