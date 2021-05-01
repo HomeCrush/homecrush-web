@@ -9,6 +9,8 @@ import { getAccessToken } from "./Store/AccessTokenStore";
 import Footer from './Components/Footer';
 import './App.css';
 import SignUp from "./Components/auth/SignUp";
+import Profile from "./Components/profile/Profile";
+import Navbar from "./Components/Navbar";
 
 
 function App() {
@@ -28,12 +30,13 @@ function App() {
   return (
 
     <div className="App">
-
+        <Navbar />
         <Switch>
           <Route exact path="/" component={Header}/>
           <Route exact path="/signin" render={() => <Login doLogin={getUser}/>} />
           <Route exact path="/signup" render={() => <SignUp doRegister={getUser}/>} />
           <Route exact path="/search" component={SearchPage}/>       
+          <Route exact path="/profile" component={Profile}/>    
         </Switch>
       <Footer />
     </div>
