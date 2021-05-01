@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import './Profile.css'
+import '../profile/Profile.css'
 import { getProperties } from "../../Services/PropertiesService";
 import { getUserInfo } from "../../Services/UserService"
-import Cards from "../Cards";
+import MatchCards from "./MatchCards";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 
-function Profile() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: "100vh",
+  },
+  icon: {
+    height: 38,
+  },
+}));
+
+
+
+function MatchProfile() {
     const [properties, setProperties] = useState([]);
     const [user,  setUser]= useState({});
+    const classes = useStyles();
     
     useEffect(() => {
         getUserInfo().then((user) => {
@@ -28,9 +43,16 @@ function Profile() {
                 </div>
              
                 <div className="lower_container_profile">
-                    <h3> { user.email } </h3>
-                    
-                   <Cards properties={properties} />
+                <Grid>
+                    <img
+                    className={classes.icon}
+                    src="https://res.cloudinary.com/homecrus/image/upload/v1619719003/Brand/HOME_CRUSH-01-removebg-preview_tco4n3.png"
+                    alt=""
+                    /> 
+                    <Typography component="h1" variant="h5">
+                    Matches </Typography>   
+                </Grid>
+                   <MatchCards properties={properties} />
                     
                 </div>
              
@@ -40,4 +62,4 @@ function Profile() {
      )
 }
 
-export default Profile
+export default MatchProfile

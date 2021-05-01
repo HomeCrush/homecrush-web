@@ -1,11 +1,12 @@
 import React from "react";
-import PropertyCard from "./Card";
+import Card from "./Card";
+import './Card.css'
 
-const Cards = ({ cards }) => {
+const Cards = ({ properties}) => {
   return (
-    <div className="cards">
-      {cards.map((card) => (
-        <PropertyCard {...card} key={card.id} />
+    <div className="Cards">
+      {properties.map((properties) => (
+        <Card {...properties} key={properties.id} />
       ))}
     </div>
   );
