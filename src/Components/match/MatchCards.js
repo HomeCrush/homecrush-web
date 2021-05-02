@@ -1,6 +1,6 @@
 import React from "react";
 import MatchCard from "./MatchCard";
-import '../Card.css'
+import '../profile/Card.css'
 import './MatchCard.css'
 
 const MatchCards = ({ properties}) => {

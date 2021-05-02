@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './Profile.css'
 import { getProperties } from "../../Services/PropertiesService";
 import { getUserInfo } from "../../Services/UserService"
-import Cards from "../Cards";
+import Cards from "./Cards";
+import Typography from "@material-ui/core/Typography";
 
 function Profile() {
     const [properties, setProperties] = useState([]);
@@ -28,8 +29,9 @@ function Profile() {
                 </div>
              
                 <div className="lower_container_profile">
-                    <h3> { user.email } </h3>
-                    
+
+                <Typography component="h1" variant="h5">
+                { user.email }  </Typography>   
                    <Cards properties={properties} />
                     
                 </div>

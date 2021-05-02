@@ -43,6 +43,7 @@ function MatchProfile() {
                 </div>
              
                 <div className="lower_container_profile">
+               
                 <Grid>
                     <img
                     className={classes.icon}
@@ -51,6 +52,7 @@ function MatchProfile() {
                     /> 
                     <Typography component="h1" variant="h5">
                     Matches </Typography>   
+                    
                 </Grid>
                    <MatchCards properties={properties} />
                     

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SliderData } from '../Components/profile/SliderData';
+import { SliderData } from './SliderData';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import './Carrusel.css'

@@ -37,10 +37,10 @@ export default function UploadButtons() {
         });
       };
  
-      profileUpdate(20)
+     /* profileUpdate(20)
       .then(() => {
        user.push("/")
-      })
+      })*/
       
 
   const classes = useStyles();
