@@ -1,14 +1,15 @@
 import { Route, Switch } from "react-router";
 import { useEffect, useState } from "react";
 
-import Login from './Components/auth/Login';
-import Header from './Components/Header';
-import SearchPage from './Components/SearchPage';
-import { getUserInfo } from "./Services/UserService";
+import Login from './components/auth/Login';
+import Header from './components/Header';
+import SearchPage from './components/SearchPage';
+import { getUserInfo } from "./services/UserService";
 import { getAccessToken } from "./Store/AccessTokenStore";
-import Footer from './Components/Footer';
+import Footer from './components/Footer';
 import './App.css';
-import SignUp from "./Components/auth/SignUp";
+import SignUp from "./components/auth/SignUp";
+import PropertyForm from "./components/property/PropertyForm";
 
 
 function App() {
@@ -31,11 +32,12 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={Header}/>
-          <Route exact path="/signin" render={() => <Login doLogin={getUser}/>} />
-          <Route exact path="/signup" render={() => <SignUp doRegister={getUser}/>} />
+          <Route exact path="/signin" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/properties/create" component={PropertyForm} />
           <Route exact path="/search" component={SearchPage}/>       
         </Switch>
-      <Footer />
+      <Footer /> 
     </div>
   );
 }
