@@ -7,21 +7,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { Grid } from '@material-ui/core';
-import LocalHotelIcon from '@material-ui/icons/LocalHotel';
-import BathtubIcon from '@material-ui/icons/Bathtub';
-import TvIcon from '@material-ui/icons/Tv';
-import WifiIcon from '@material-ui/icons/Wifi';
-import SmokingRoomsIcon from '@material-ui/icons/SmokingRooms';
-import PetsIcon from '@material-ui/icons/Pets';
-import PoolIcon from '@material-ui/icons/Pool';
-import LocalParkingIcon from '@material-ui/icons/LocalParking';
-import KitchenIcon from '@material-ui/icons/Kitchen';
+import { Link as RouterLink } from 'react-router-dom';
+import SimpleTooltips from './Options'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    marginTop: 20,
+   
   },
   marginAutoContainer: {
     display: 'flex',
@@ -44,7 +36,18 @@ const useStyles = makeStyles({
     backgroundPosition: "center",
     objectFit:"cover",
   },
-});
+  icon:{
+    paddingRight: theme.spacing(1),
+  },
+  btn:{
+    background: "#44A1A0",
+    color: "#fff",
+    "&:hover": {
+  background: "#0D5C63",
+  color: "#fff"
+  }
+}
+}));
 
 export default function PropertyCard() {
   const classes = useStyles();
@@ -73,30 +76,12 @@ export default function PropertyCard() {
             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
             across all continents except Antarctica
           </Typography>
-          <Grid>
-          <LocalHotelIcon />
-          </Grid>
-          <Grid>
-          <BathtubIcon />
-          </Grid>
-          <Grid>
-          <TvIcon />
-          </Grid>
-          <Grid>
-          <WifiIcon />
-          </Grid>
-          <Grid>
-         <SmokingRoomsIcon />
-         </Grid>
-         <Grid>
-         <PetsIcon />
-         </Grid>
+          <SimpleTooltips />
+         
         </CardContent>
-        < PoolIcon />
-      < LocalParkingIcon />
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button className={classes.btn} size="small" color="primary" component={RouterLink} to="/slider">
           View more pics
         </Button>
       </CardActions>

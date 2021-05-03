@@ -2,9 +2,20 @@ import React, { useState } from 'react';
 import { SliderData } from './SliderData';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import CloseIcon from '@material-ui/icons/Close';
+import PropertyCard from './PropertyCard'
 import './Carrusel.css'
+import { Link as RouterLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import IconLabelButtons from './Bnt'
+
 
 const ImageSlider = ({ slides }) => {
+
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
@@ -21,7 +32,8 @@ const ImageSlider = ({ slides }) => {
   }
 
   return (
-    <section className='slider'>
+    <Card>
+      <CardActionArea >
       <ArrowBackIosIcon  className='left-arrow' onClick={prevSlide} />
       <ArrowForwardIosIcon className='right-arrow' onClick={nextSlide} />
       {SliderData.map((slide, index) => {
@@ -36,7 +48,12 @@ const ImageSlider = ({ slides }) => {
           </div>
         );
       })}
-    </section>
+      </CardActionArea>
+      <CardActions>
+     < IconLabelButtons />
+      </CardActions>
+    </Card >
+        
   );
 };
 

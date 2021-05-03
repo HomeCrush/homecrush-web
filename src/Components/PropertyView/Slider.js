@@ -6,7 +6,7 @@ import { SliderData } from './SliderData';
 function Slider() {
     return (
         <div>
-            <ImageSlider slides={SliderData} />;
+            <ImageSlider slides={SliderData} />
 
         </div>
     )

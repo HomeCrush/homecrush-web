@@ -25,6 +25,9 @@
       padding-top: 20px;
       border: 1;
     }
+    .card_title{
+      margin-bottom: 15px;
+    }
   
     .card_info > h2 {
       font-size: 18px;
