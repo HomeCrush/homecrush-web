@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
 
-import Navbar from "./Components/home/Navbar";
-import Header from './components/Header';
+import Navbar from "./components/home/Navbar";
+import Header from './components/home/Header';
 import SignUp from "./components/auth/SignUp";
 import Login from './components/auth/Login';
-import SearchPage from './components/SearchPage';
-import Profile from "./Components/profile/Profile";
-import ProfilePicture from "./Components/profile/ProfilePicture";
-import MatchProfile from "./Components/match/MatchProfile";
-import Slider from "./Components/PropertyView/Slider";
-import PropertyCard from "./Components/PropertyView/PropertyCard";
-import VirtualizedList from "./Components/PropertyView/ListOptions";
+import SearchPage from './components/SwipeCards/SearchPage';
+import Profile from "./components/profile/Profile";
+import ProfilePicture from "./components/profile/ProfilePicture";
+import MatchProfile from "./components/match/MatchProfile";
+import Slider from "./components/PropertyView/Slider";
+import PropertyCard from "./components/PropertyView/PropertyCard";
+import ListOptions from "./components/PropertyView/ListOptions";
 import { getUserInfo } from "./services/UserService";
 import { getAccessToken } from "./Store/AccessTokenStore";
-
+import FileUpload from "./components/FileUpload/FileUpload";
+import Crush from "./components/SwipeCards/Crush";
 import './App.css';
+
 
 function App() {
 
@@ -45,7 +47,8 @@ function App() {
           <Route exact path="/matchprofile" component={MatchProfile} />
           <Route exact path="/slider" component={Slider} />
           <Route exact path="/propertycard" component={PropertyCard} />
-          <Route exact path="/listados" component={VirtualizedList} />      
+          <Route exact path="/listados" component={ListOptions} />     
+          <Route exact path="/crush" component={Crush} />  
         </Switch>
     </div>
   );

@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
-<<<<<<< HEAD:src/components/SwipeCards/SearchResult.js
-import { getProperties, like, reject } from "../../Services/PropertiesService";
-=======
-import { getProperties, like, reject } from "../services/PropertiesService";
->>>>>>> master:src/components/SearchResult.js
+import { getProperties, like, reject } from "../../services/PropertiesService";
 import TinderCard from "react-tinder-card"
 import CloseIcon from "@material-ui/icons/Close";
 import FavoriteIcon from "@material-ui/icons/Favorite";

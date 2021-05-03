@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Profile.css'
-import { getProperties } from "../../Services/PropertiesService";
-import { getUserInfo } from "../../Services/UserService"
+import { getProperties } from "../../services/PropertiesService";
+import { getUserInfo } from "../../services/UserService"
 import Cards from "./Cards";
 import Typography from "@material-ui/core/Typography";
 
