@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -9,6 +9,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import DropZone from "./DropZone";
+import { useForm } from 'react-hook-form';
+import { FormContext } from '../../context/FormContext';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,9 +39,15 @@ const useStyles = makeStyles((theme) => ({
 
 const FormStepTwo = () => {
     const classes = useStyles();
+    const { data, saveState } = useContext(FormContext)
+    const { register, handleSubmit, watch } = useForm();
 
+    const onSubmit = (values) => {
+      saveState(values)
+    }
+    console.log( data )
     return (
-      <div className="FormStepOne">
+      <div className="FormStepTwo">
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div className={classes.paper}>
@@ -103,6 +111,7 @@ const FormStepTwo = () => {
               </Button>
             </form>
           </div>
+          <pre>{JSON.stringify(data)}</pre>
         </Container>
       </div>
     );
