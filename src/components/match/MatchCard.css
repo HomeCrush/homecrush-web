@@ -1,4 +1,4 @@
-.card {
+.match_card {
     margin: 20px;
     border-radius: 10px;
     overflow: hidden;
@@ -6,11 +6,11 @@
     transition: transform 100ms ease-in;
     cursor: pointer;
 }
-.card:hover {
+.match_card:hover {
     transform: scale(1.07);
   }
 
-.card > img {
+  .match_card> img {
     object-fit: fill;
     min-width: 300px;
     min-height: 100px;
@@ -18,23 +18,20 @@
     width: 100%;
   }
   
-  .card_info {
+  .match_card_info {
       margin-top: -9px;
       border-radius: 10px;
       padding: 20px;
       padding-top: 20px;
       border: 1;
     }
-    .card_title{
-      margin-bottom: 15px;
-    }
   
-    .card_info > h2 {
+    .match_card_info > h2 {
       font-size: 18px;
       font-weight: 600;
     }
     
-    .card_info > h4 {
+    .match_card_info > h4 {
       font-size: 14px;
       font-weight: 300;
       margin-top: 8px;
