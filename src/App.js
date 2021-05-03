@@ -1,25 +1,22 @@
 import { Route, Switch } from "react-router";
 import { useEffect, useState } from "react";
 
-import Login from './Components/auth/Login';
-import Header from './Components/home/Header';
-import SearchPage from './Components/SwipeCards/SearchPage';
-import { getUserInfo } from "./Services/UserService";
+import Login from './components/auth/Login';
+import Header from './components/Header';
+import SearchPage from './components/SearchPage';
+import { getUserInfo } from "./services/UserService";
 import { getAccessToken } from "./Store/AccessTokenStore";
-import Footer from './Components/home/Footer';
-import './App.css';
-import SignUp from "./Components/auth/SignUp";
 import Navbar from "./Components/home/Navbar";
-//import ProductsHome from "./Components/ProductsHome";
+import Footer from './components/Footer';
+import './App.css';
 import Profile from "./Components/profile/Profile";
 import ProfilePicture from "./Components/profile/ProfilePicture";
 import MatchProfile from "./Components/match/MatchProfile";
 import Slider from "./Components/PropertyView/Slider";
 import PropertyCard from "./Components/PropertyView/PropertyCard";
 import VirtualizedList from "./Components/PropertyView/ListOptions";
-
-
-
+import SignUp from "./components/auth/SignUp";
+import PropertyForm from "./components/property/PropertyForm";
 
 
 function App() {
@@ -42,6 +39,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Header}/>
+<<<<<<< HEAD
           <Route exact path="/signin" render={() => <Login doLogin={getUser}/>} />
           <Route exact path="/signup" render={() => <SignUp doRegister={getUser}/>} />
           <Route exact path="/search" component={SearchPage}/>        
@@ -55,6 +53,14 @@ function App() {
           
         </Switch>
       
+=======
+          <Route exact path="/signin" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/properties/create" component={PropertyForm} />
+          <Route exact path="/search" component={SearchPage}/>       
+        </Switch>
+      <Footer /> 
+>>>>>>> master
     </div>
   );
 }
