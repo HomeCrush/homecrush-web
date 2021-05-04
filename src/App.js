@@ -49,6 +49,7 @@ function App() {
           <Route exact path="/propertycard" component={PropertyCard} />
           <Route exact path="/listados" component={ListOptions} />     
           <Route exact path="/crush" component={Crush} />  
+          <Route exact path="/editprofile" component={FileUpload} />  
         </Switch>
     </div>
   );
