@@ -57,7 +57,7 @@ export default function EditProfile() {
         error={errors.image}
         type="file"
       />
-      <Button >
+      <Button type="submit" >
         Upload
       </Button>
     </form>
