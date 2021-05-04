@@ -6,6 +6,6 @@ export const getUserInfo = () => {
   return http.get("/users/me");
 };
 
-export const profileUpdate = (id) => {
-  return http.put(`/user/profileupdate/${id}`);
-};
+export const editProfile = (user) => {
+  return http.put("/user/editprofile", user)
+}

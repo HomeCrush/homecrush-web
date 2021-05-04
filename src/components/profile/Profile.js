@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Profile.css'
-import { getProperties } from "../../Services/PropertiesService";
-import { getUserInfo } from "../../Services/UserService"
+import { getProperties } from "../../services/PropertiesService";
+import { getUserInfo } from "../../services/UserService"
 import Cards from "./Cards";
 import Typography from "@material-ui/core/Typography";
+import { UserContext } from '../../context/UserContext';
+
+
+
 
 function Profile() {
     const [properties, setProperties] = useState([]);
-    const [user,  setUser]= useState({});
+    const [userInfo,  setUserInfo]= useState({});
+    const { user } = useContext(UserContext)
     
     useEffect(() => {
         getUserInfo().then((user) => {
-            setUser(user)
+            setUserInfo(user)
         }).catch(e => console.log(e));
       }, []);
 
@@ -20,14 +25,13 @@ function Profile() {
         setProperties(prods);
       });
     }, []);
-
      return (
         <div className="profile">
             <div className="upper_container_profile">
                 <div className="image_container_profile">
-                    <img className="image_profile" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="" height="100px" width="100px" />
+                    <img className="image_profile" src={user.image} alt="" height="100px" width="100px" />
                 </div>
-             
+               
                 <div className="lower_container_profile">
 
                 <Typography component="subtitle2" variant="subtitle2">

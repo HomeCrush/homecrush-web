@@ -12,6 +12,16 @@ import PoolIcon from '@material-ui/icons/Pool';
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grid from '@material-ui/core/Grid';
+import KitchenIcon from '@material-ui/icons/Kitchen';
+import EventSeatIcon from '@material-ui/icons/EventSeat';
+import ComputerIcon from '@material-ui/icons/Computer';
+import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
+import HotTubIcon from '@material-ui/icons/HotTub';
+import LocalLaundryServiceIcon from '@material-ui/icons/LocalLaundryService';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import ChildFriendlyIcon from '@material-ui/icons/ChildFriendly';
+import WeekendIcon from '@material-ui/icons/Weekend';
+
 
 const useStyles = makeStyles((theme) => ({
   absolute: {
@@ -50,7 +60,34 @@ export default function SimpleTooltips() {
       <WifiIcon className={classes.icon} />
       </IconButton>
       <IconButton>
+      < KitchenIcon className={classes.icon} />
+      </IconButton>
+      <IconButton>
+      <WeekendIcon className={classes.icon} />
+      </IconButton>
+      <IconButton>
+     < EventSeatIcon className={classes.icon} />
+     </IconButton>
+      <IconButton>
+      < LocalLaundryServiceIcon className={classes.icon} />
+      </IconButton>
+      <IconButton>
+      < ComputerIcon className={classes.icon} />
+      </IconButton>
+      <IconButton>
+      < LocalFloristIcon className={classes.icon} />
+      </IconButton> 
+      <IconButton>
       < PoolIcon className={classes.icon} />
+      </IconButton>
+      <IconButton>
+      < HotTubIcon className={classes.icon} />
+      </IconButton>
+      <IconButton>
+      <FitnessCenterIcon className={classes.icon} />
+      </IconButton>
+      <IconButton>
+      < LocalParkingIcon className={classes.icon} />
       </IconButton>
       <IconButton>
       <SmokingRoomsIcon className={classes.icon} />
@@ -59,8 +96,9 @@ export default function SimpleTooltips() {
       <PetsIcon className={classes.icon} />
       </IconButton>
       <IconButton>
-      < LocalParkingIcon className={classes.icon} />
+      <ChildFriendlyIcon className={classes.icon} />
       </IconButton>
+
     </div>
      </Grid>
   );
