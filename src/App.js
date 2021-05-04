@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
 
 import Navbar from "./components/home/Navbar";
 import Header from './components/home/Header';
 import SignUp from "./components/auth/SignUp";
 import Login from './components/auth/Login';
+
 import SearchPage from './components/SwipeCards/SearchPage';
-import Profile from "./components/profile/Profile";
+import ListOptions from "./components/PropertyView/ListOptions";
+
+import Profile from "./Components/profile/Profile";
+import PropertyForm from "./components/property/PropertyForm";
+
+import SignUp from "./components/auth/SignUp";
 import ProfilePicture from "./components/profile/ProfilePicture";
 import MatchProfile from "./components/match/MatchProfile";
 import Slider from "./components/PropertyView/Slider";
 import PropertyCard from "./components/PropertyView/PropertyCard";
-import ListOptions from "./components/PropertyView/ListOptions";
+import VirtualizedList from "./components/PropertyView/ListOptions";
+
 import { getUserInfo } from "./services/UserService";
 import { getAccessToken } from "./Store/AccessTokenStore";
 import FileUpload from "./components/FileUpload/FileUpload";
@@ -20,18 +26,6 @@ import './App.css';
 
 
 function App() {
-
-  const [user, setUser] = useState(null)
-
-  const getUser = () => {
-    return getUserInfo().then(response => setUser(response))
-  }
-
-  useEffect(() => {
-    if ( getAccessToken ) {
-      getUser()
-    }
-  },[])
 
   return (
 
