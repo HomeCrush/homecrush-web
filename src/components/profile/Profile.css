@@ -1,0 +1,37 @@
+.profile{ 
+    background-color: #fff;
+    width: 300px;
+    height: 100vh;
+    box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.upper_container_profile {
+    height: 100px;
+    background: linear-gradient(to left, #0D5C63, #44A1A0, #00A896);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.image_container_profile img{
+    background:white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 5px;
+    transform: translate(95px, 45px);
+    border: 1px solid #0D5C63;
+}
+.image_profile{
+    object-fit: cover;
+}
+
+.lower_container_profile{
+    margin-top: 60px;
+    height: 100vh;
+    background: white;
+    text-align: center;
+}

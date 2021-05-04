@@ -1,0 +1,49 @@
+.swipeButtons {
+    position: absolute;
+    top: 75%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.swipeButtons .MiuIconButton-root{
+    background-color: white;
+    box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
+}
+
+.swipeButtons_left {
+    padding: 3vw !important;
+    color: #ec5e6f !important;
+}
+.swipeButtons_right {
+    padding: 3vw !important;
+    color: #44A1A0 !important;
+}
+
+@media screen and  (min-width:320px) and (max-width:480x) {
+.swipeButtons {
+  top: 75%;
+}
+}
+
+@media screen and  (min-width:481px) and (max-width:768x) {
+  .swipeButtons {
+    top: 75%;
+  }
+}
+
+@media screen and  (min-width:769px) and (max-width:777px) {
+  .swipeButtons {
+    top: 70%;
+  }
+}
+
+@media screen and  (min-width:778px) and (max-width:1021px) {
+  .swipeButtons {
+    top: 75%;
+  }
+}
+@media screen and  (min-width:1021px) and (max-width:1200px) { 
+  .swipeButtons {
+    top: 75%;
+  }
+}
