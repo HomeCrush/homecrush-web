@@ -1,20 +1,17 @@
+import React, { useContext } from "react";
 
-import React from "react";
-import { useState } from "react";
+import { FormContext } from "../../context/FormContext";
 import FormStepOne from "./FormStepOne";
 import FormStepTwo from "./FormStepTwo";
 
 
 
 const PropertyForm = () => {
-    const [formStep, setFormStep] = useState(0)
-    const completeFormStep = () => {
-      setFormStep(currentStep => currentStep +1)
-    }
+   const { formStep } = useContext(FormContext)
     return (
       <div className="PropertyForm">
         <p>{String(formStep)}</p>
-        {formStep === 0 && <FormStepOne  completeFormFunction={completeFormStep}/>}
+        {formStep === 0 && <FormStepOne />}
         {formStep === 1 && <FormStepTwo />}
       </div>
     );

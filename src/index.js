@@ -5,12 +5,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { UserContextProvider } from "./context/UserContext";
+import { FormContextProvider } from "./context/FormContext";
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
         <UserContextProvider>
-          <App />
+          <FormContextProvider>
+            <App />
+          </FormContextProvider>
         </UserContextProvider>
       </BrowserRouter>
   </React.StrictMode>,
