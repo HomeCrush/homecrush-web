@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
 
 import Navbar from "./Components/home/Navbar";
@@ -6,7 +5,11 @@ import Header from './components/Header';
 import SignUp from "./components/auth/SignUp";
 import Login from './components/auth/Login';
 import SearchPage from './components/SearchPage';
+
 import Profile from "./Components/profile/Profile";
+import PropertyForm from "./components/property/PropertyForm";
+
+import SignUp from "./components/auth/SignUp";
 import ProfilePicture from "./Components/profile/ProfilePicture";
 import MatchProfile from "./Components/match/MatchProfile";
 import Slider from "./Components/PropertyView/Slider";
@@ -18,18 +21,6 @@ import { getAccessToken } from "./Store/AccessTokenStore";
 import './App.css';
 
 function App() {
-
-  const [user, setUser] = useState(null)
-
-  const getUser = () => {
-    return getUserInfo().then(response => setUser(response))
-  }
-
-  useEffect(() => {
-    if ( getAccessToken ) {
-      getUser()
-    }
-  },[])
 
   return (
 

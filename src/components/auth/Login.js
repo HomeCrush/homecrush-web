@@ -116,7 +116,6 @@ const Login = () => {
                 autoComplete="current-password"
               />
               <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"
