@@ -39,9 +39,8 @@ const useStyles = makeStyles((theme) => ({
 const FormStepOne = () => {
   const classes = useStyles();
   const { data, saveState } = useContext(FormContext)
-  const { register, handleSubmit, watch } = useForm({
-      defaultValues: {title:data.title}
-  });
+  const { register, handleSubmit } = useForm();
+  
   const onSubmit = (data) => {
     saveState(data)
   }
@@ -119,7 +118,6 @@ const FormStepOne = () => {
             </Button>
           </form>
         </div>
-        <pre>{JSON.stringify(data)}</pre>
       </Container>
     </div>
   );

@@ -1,16 +1,17 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import DropZone from "./DropZone";
-import { useForm } from 'react-hook-form';
 import { FormContext } from '../../context/FormContext';
+import IconButton from "./IconButton"
+import RuleIconButton from './RuleIconButton';
+import { createProperty } from '../../services/PropertiesService';
+import { useHistory } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,83 +39,318 @@ const useStyles = makeStyles((theme) => ({
 
 
 const FormStepTwo = () => {
-    const classes = useStyles();
-    const { data, saveState } = useContext(FormContext)
-    const { register, handleSubmit, watch } = useForm();
+  const classes = useStyles();
+  const { data } = useContext(FormContext)
+  const { register, handleSubmit, watch } = useForm();
+  const { push } = useHistory();
 
-    const onSubmit = (values) => {
-      saveState(values)
-    }
-    console.log( data )
-    return (
-      <div className="FormStepTwo">
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <div className={classes.paper}>
-            <Grid>
-              <img
-                className={classes.icon}
-                src="https://res.cloudinary.com/homecrus/image/upload/v1619719003/Brand/HOME_CRUSH-01-removebg-preview_tco4n3.png"
-                alt=""
-              />
-            </Grid>
-            <Typography component="h1" variant="h5">
-              Add your property step 2
-            </Typography>
-            <form className={classes.form} noValidate>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="title"
-                label="Title"
-                name="title"
-                autoComplete="title"
-                autoFocus
-              />
-              <TextField
-                variant="outlined"
-                multiline
-                rows={4}
-                margin="normal"
-                required
-                fullWidth
-                name="description"
-                label="Description"
-                type="description"
-                id="description"
-                autoComplete="description"
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="location"
-                label="Location"
-                name="location"
-                autoComplete="location"
-                autoFocus
-              />
-              <Grid container justify="flex-end">
-                <DropZone />
+
+    const [selectedAmenities, setSelectedAmenities] = useState({
+      tv: true,
+      wifi: false,
+      equippedKitchen: false,
+      livingRoom: false,
+      dinningRoom: false,
+      workArea: false,
+      courtyard: false,
+      jacuzzi: false,
+      pool: false,
+      washingMachine: false,
+      parking: false,
+      gym: false,
+    });
+
+    const amenitieOnchange = (key) => {
+      setSelectedAmenities((prev) => ({
+        ...prev,
+        [key]: !selectedAmenities[key],
+      }));
+    };
+
+    const ruleOnchange = (key) => {
+      setSelectedRules((prev) => ({
+        ...prev,
+        [key]: !selectedRules[key],
+      }));
+    };
+
+    const [selectedRules, setSelectedRules] = useState({
+      smokersWelcome: false,
+      petsWelcome: true,
+      childrenWelcome: false,
+    });
+
+    const onSubmit = (formData) => {
+      let property = {
+        ...data,
+        ...formData
+      }
+      property.amenities = selectedAmenities
+      property.rules = selectedRules
+      createProperty(property)
+        .then(() =>  push("/profile"))
+     };
+
+  return (
+    <div className="FormStepTwo">
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Grid>
+            <img
+              className={classes.icon}
+              src="https://res.cloudinary.com/homecrus/image/upload/v1619719003/Brand/HOME_CRUSH-01-removebg-preview_tco4n3.png"
+              alt=""
+            />
+          </Grid>
+          <Typography component="h1" variant="h5">
+            Add your property step 2
+          </Typography>
+          <form
+            className={classes.form}
+            noValidate
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              spacing={2}
+            >
+              <Grid item xs={6}>
+                <TextField
+                  {...register("bedRooms")}
+                  variant="outlined"
+                  fullWidth
+                  id="bedRooms"
+                  label="Bedrooms"
+                  name="bedRooms"
+                  autoComplete="bedRooms"
+                  autoFocus
+                  type="number"
+                  InputProps={{
+                    inputProps: {
+                      max: 100,
+                      min: 1,
+                    },
+                  }}
+                />
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Next
-              </Button>
-            </form>
-          </div>
-          <pre>{JSON.stringify(data)}</pre>
-        </Container>
-      </div>
-    );
+              <Grid item xs={6}>
+                <TextField
+                  {...register("bathRooms")}
+                  variant="outlined"
+                  fullWidth
+                  id="bathRooms"
+                  label="Bathrooms"
+                  name="bathRooms"
+                  autoComplete="Bath rooms"
+                  autoFocus
+                  type="number"
+                  InputProps={{
+                    inputProps: {
+                      max: 100,
+                      min: 1,
+                    },
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              spacing={2}
+            >
+              <Grid item xs={6}>
+                <TextField
+                  {...register("beds.singleBeds")}
+                  variant="outlined"
+                  fullWidth
+                  id="beds.singleBeds"
+                  label="Beds"
+                  name="beds.singleBeds"
+                  autoComplete="beds"
+                  autoFocus
+                  type="number"
+                  InputProps={{
+                    inputProps: {
+                      max: 100,
+                      min: 1,
+                    },
+                  }}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  {...register("beds.doubleBeds")}
+                  variant="outlined"
+                  fullWidth
+                  id="beds.doubleBeds"
+                  label="Double beds"
+                  name="beds.doubleBeds"
+                  autoComplete="beds"
+                  autoFocus
+                  type="number"
+                  InputProps={{
+                    inputProps: {
+                      max: 100,
+                      min: 1,
+                    },
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              spacing={2}
+            >
+              <Grid item xs={12}>
+                <Typography component="h3" variant="subtitle2">
+                  Amenities
+                </Typography>
+              </Grid>
+
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="tv"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="wifi"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="equippedKitchen"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="livingRoom"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="dinningRoom"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="workArea"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="courtyard"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="jacuzzi"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="pool"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="washingMachine"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="parking"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <IconButton
+                  iconKey="gym"
+                  amenitieOnchange={amenitieOnchange}
+                  selectedAmenities={selectedAmenities}
+                />
+              </Grid>
+            </Grid>
+
+            <Grid
+              container
+              direction="row"
+              justify="center"
+              alignItems="center"
+              spacing={2}
+            >
+              <Grid item xs={12}>
+                <Typography component="h3" variant="subtitle2">
+                  Rules
+                </Typography>
+              </Grid>
+              <Grid item xs={2}>
+                <RuleIconButton
+                  iconKey="smokersWelcome"
+                  ruleOnchange={ruleOnchange}
+                  selectedRules={selectedRules}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <RuleIconButton
+                  iconKey="petsWelcome"
+                  ruleOnchange={ruleOnchange}
+                  selectedRules={selectedRules}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <RuleIconButton
+                  iconKey="childrenWelcome"
+                  ruleOnchange={ruleOnchange}
+                  selectedRules={selectedRules}
+                />
+              </Grid>
+            </Grid>
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Next
+            </Button>
+          </form>
+        </div>
+      </Container>
+    </div>
+  );
 }
 
 export default FormStepTwo
