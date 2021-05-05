@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import LocalHotelIcon from '@material-ui/icons/LocalHotel';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
 import BathtubIcon from '@material-ui/icons/Bathtub';
 import TvIcon from '@material-ui/icons/Tv';
 import WifiIcon from '@material-ui/icons/Wifi';
@@ -10,7 +8,6 @@ import SmokingRoomsIcon from '@material-ui/icons/SmokingRooms';
 import PetsIcon from '@material-ui/icons/Pets';
 import PoolIcon from '@material-ui/icons/Pool';
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grid from '@material-ui/core/Grid';
 import KitchenIcon from '@material-ui/icons/Kitchen';
 import EventSeatIcon from '@material-ui/icons/EventSeat';
@@ -21,85 +18,147 @@ import LocalLaundryServiceIcon from '@material-ui/icons/LocalLaundryService';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import ChildFriendlyIcon from '@material-ui/icons/ChildFriendly';
 import WeekendIcon from '@material-ui/icons/Weekend';
-
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles((theme) => ({
-  absolute: {
-    position: 'absolute',
-    bottom: theme.spacing(2),
-    right: theme.spacing(3),
-  },
-  icon:{
-    paddingRight: theme.spacing(1),
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
   },
 }));
 
-
 export default function SimpleTooltips() {
 
-
+  const handleClick = () => {
+    console.info('You clicked the Chip.');
+  };
   const classes = useStyles();
 
   return (
-    <Grid item>
-    <div>
-      <Tooltip disableFocusListener disableTouchListener title="4 rooms">
-        <IconButton  >
-        <LocalHotelIcon className={classes.icon} />
-        </IconButton>
-      </Tooltip>
-      <Tooltip disableFocusListener disableTouchListener title="2 bathrooms" >
-      <IconButton >
-      <BathtubIcon className={classes.icon}/>
-      </IconButton>
-      </Tooltip>
-      <IconButton>
-      <TvIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      <WifiIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      < KitchenIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      <WeekendIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-     < EventSeatIcon className={classes.icon} />
-     </IconButton>
-      <IconButton>
-      < LocalLaundryServiceIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      < ComputerIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      < LocalFloristIcon className={classes.icon} />
-      </IconButton> 
-      <IconButton>
-      < PoolIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      < HotTubIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      <FitnessCenterIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      < LocalParkingIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      <SmokingRoomsIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      <PetsIcon className={classes.icon} />
-      </IconButton>
-      <IconButton>
-      <ChildFriendlyIcon className={classes.icon} />
-      </IconButton>
-
+    <div className={classes.root}>
+    <Chip
+        variant="outlined"
+        size="small"
+        icon={<LocalHotelIcon />}
+        label="Rooms: 3"
+        onClick={handleClick}
+      />
+      <Chip
+      variant="outlined"
+      size="small"
+      icon={<BathtubIcon />}
+      label="BathroomRooms: 2"
+      onClick={handleClick}
+     />
+      <Chip
+      variant="outlined"
+      size="small"
+      icon={<TvIcon />}
+      label="TV"
+      onClick={handleClick}
+     />
+      <Chip
+      variant="outlined"
+      size="small"
+      icon={<WifiIcon />}
+      label="WiFi"
+      onClick={handleClick}
+      />
+      <Chip
+      variant="outlined"
+      size="small"
+      icon={<KitchenIcon />}
+      label="Fully equipped kitchen"
+      onClick={handleClick}
+    />
+      <Chip
+      variant="outlined"
+      size="small"
+      icon={<WeekendIcon />}
+      label="Living Room"
+      onClick={handleClick}
+    />
+       <Chip
+     variant="outlined"
+     size="small"
+     icon={<EventSeatIcon />}
+     label="Dining Room"
+     onClick={handleClick}
+    />
+        <Chip
+     variant="outlined"
+     size="small"
+     icon={<LocalLaundryServiceIcon />}
+     label="Dish Washer"
+     onClick={handleClick}
+    />
+    <Chip
+    variant="outlined"
+    size="small"
+    icon={<ComputerIcon />}
+    label="Work Place"
+    onClick={handleClick}
+   />
+     <Chip
+    variant="outlined"
+    size="small"
+    icon={<LocalFloristIcon />}
+    label="Yard"
+    onClick={handleClick}
+  />
+   <Chip
+    variant="outlined"
+    size="small"
+    icon={<PoolIcon />}
+    label="Pool"
+    onClick={handleClick}
+  />
+     <Chip
+    variant="outlined"
+    size="small"
+    icon={<HotTubIcon  />}
+    label="Jacuzzi"
+    onClick={handleClick}
+  />
+       <Chip
+    variant="outlined"
+    size="small"
+    icon={<FitnessCenterIcon  />}
+    label="Gym"
+    onClick={handleClick}
+  />
+       <Chip
+    variant="outlined"
+    size="small"
+    icon={<LocalParkingIcon  />}
+    label="Parking"
+    onClick={handleClick}
+    />
+<Chip
+   variant="outlined"
+   size="small"
+   icon={<SmokingRoomsIcon  />}
+   label="Smoking allowed "
+   onClick={handleClick}
+/>
+<Chip
+   variant="outlined"
+   size="small"
+   icon={<PetsIcon  />}
+   label="Pets allowed "
+   onClick={handleClick}
+/>
+<Chip
+   variant="outlined"
+   size="small"
+   icon={<ChildFriendlyIcon  />}
+   label="Pets allowed "
+   onClick={handleClick}
+/>
     </div>
-     </Grid>
   );
 }
