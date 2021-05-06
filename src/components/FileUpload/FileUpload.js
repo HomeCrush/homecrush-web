@@ -8,7 +8,7 @@ import { UserContext } from '../../context/UserContext';
 export default function EditProfile() {
   const { id } = useParams();
   const { push } = useHistory();
-  const { setUser } = useContext(UserContext)
+ 
 
   const onChange = (event) => {
     let value = event.target.value;
