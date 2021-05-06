@@ -1,3 +1,4 @@
+import { get } from "react-hook-form";
 import { create } from "./BaseService";
 
 const http = create();
@@ -24,4 +25,8 @@ export const reject =(property) => {
 
 export const like =(property) => {
   return http.post(`/properties/${property.id}/like`, property);
+}
+
+export const matchList =(property) => {
+  return http.get(`properties/matchlist`, property);
 }

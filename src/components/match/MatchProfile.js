@@ -6,11 +6,23 @@ import MatchCards from "./MatchCards";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Button from '@material-ui/core/Button';
+import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     
   },
+  btn:{
+    background: "#44A1A0",
+    margin: theme.spacing(1),
+    padding:theme.spacing(0),
+    color: "#fff",
+    "&:hover": {
+    background: "#0D5C63",
+    color: "#fff",
+  }
+},
   icon: {
     height: 38,
   },
@@ -19,9 +31,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 function MatchProfile() {
+    const classes = useStyles();
+
     const [properties, setProperties] = useState([]);
     const [user,  setUser]= useState({});
-    const classes = useStyles();
+   
     
     useEffect(() => {
         getUserInfo().then((user) => {
@@ -51,7 +65,11 @@ function MatchProfile() {
                     alt=""
                     /> 
                     <Typography component="h1" variant="h5">
-                    Matches </Typography>   
+                   Crush 
+                   </Typography>   
+                   <Button className={classes.btn} size="small" color="primary" component={RouterLink} to="/profile">
+                      Profile
+                  </Button>
                     
                 </Grid>
                    <MatchCards properties={properties} />
