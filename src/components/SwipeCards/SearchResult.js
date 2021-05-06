@@ -32,6 +32,7 @@ function SearchResult() {
         }
         else {
            /*like(id).then(() =>  setCurrentProperty((prevState) => prevState + 1 ))*/
+
             like(property).then(() => {
                 if(currentProperty < properties.length - 1) {
                     setCurrentProperty(currentProperty + 1);

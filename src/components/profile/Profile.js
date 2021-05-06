@@ -29,13 +29,13 @@ function Profile() {
         <div className="profile">
             <div className="upper_container_profile">
                 <div className="image_container_profile">
-                    <img className="image_profile" src={user.image} alt="" height="100px" width="100px" />
+                    <img className="image_profile" src={user?.image} alt="" height="100px" width="100px" />
                 </div>
                
                 <div className="lower_container_profile">
 
                 <Typography component="subtitle2" variant="subtitle2">
-                { user.email }  
+                { user?.email }  
                 </Typography>   
                    <Cards properties={properties} />
                     

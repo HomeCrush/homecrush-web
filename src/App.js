@@ -17,12 +17,14 @@ import Crush from "./components/SwipeCards/Crush";
 
 
 import './App.css';
+import ContactCard from "./components/match/ContactInfo";
 
 
 function App() {
 
   return (
     <div className="App">
+
       <Navbar />
       <Switch>
         <Route exact path="/" component={Header} />
@@ -38,6 +40,7 @@ function App() {
         <Route exact path="/listados" component={ListOptions} />
         <Route exact path="/crush" component={Crush} />
         <Route exact path="/editprofile" component={FileUpload} />
+     <Route exact path="/contactcard" component={ContactCard} />  
       </Switch>
     </div>
   );
