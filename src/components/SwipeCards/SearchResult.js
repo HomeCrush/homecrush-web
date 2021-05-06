@@ -18,27 +18,27 @@ function SearchResult() {
         getProperties().then((properties) => setProperties(properties));
     }, []);
 
-    const swiped = (id, dir) => {
+    const swiped = (property, dir) => {
 
         if(dir === "left"){
            /*reject(id).then(( aqui va todo lo de abajo currentProperty) => setCurrentProperty(currentProperty + 1))*/
-            //reject(id).then(() => {
+            reject(property).then(() => {
                 if(currentProperty < properties.length - 1) {
                     setCurrentProperty(currentProperty + 1);
                 } else {
                     setCurrentProperty(0);
                 }
-            //})        
+            })        
         }
         else {
            /*like(id).then(() =>  setCurrentProperty((prevState) => prevState + 1 ))*/
-            //like(id).then(() => {
+            like(property).then(() => {
                 if(currentProperty < properties.length - 1) {
                     setCurrentProperty(currentProperty + 1);
                      } else {
                     setCurrentProperty(0);
             }  
-        //})
+        })
         }
      }
 
@@ -46,36 +46,34 @@ function SearchResult() {
         return "Loading...";
     }
    const property = properties[currentProperty]
-
+ //alert
     return (
-        
-        <div className='searchResult'>
-            <div className='searchResult_cardContainer'>
-                
-                    <TinderCard
-                    className='swipe'
-                    key={property.title}
-                    preventSwipe={["up", "down"]}
-                    onSwipe={(dir) => swiped(property.id, dir)
-                    }>
-                        <div 
-                        style={{ backgroundImage: `url(${property.images})` }}
-                        className='searchResultCard'
-                        >
-                            <h3>{property.title}</h3>
-                        </div>
-                    </TinderCard>
+      <div className="searchResult">
+        <div className="searchResult_cardContainer">
+          <TinderCard
+            className="swipe"
+            key={property.title}
+            preventSwipe={["up", "down"]}
+            onSwipe={(dir) => swiped(property, dir)}
+          >
+            <div
+              style={{ backgroundImage: `url(${property.images})` }}
+              className="searchResultCard"
+            >
+              <h3>{property.title}</h3>
             </div>
-            <div className='swipeButtons'>
-                <IconButton  className="swipeButtons_left">
-                    <CloseIcon onClick={() => swiped('left')}/>
-                 </IconButton>
-                <IconButton className="swipeButtons_right">
-                     <FavoriteIcon onClick={() => swiped('right')}/>
-                 </IconButton>
-             </div>
+          </TinderCard>
         </div>
-    )
+        <div className="swipeButtons">
+          <IconButton className="swipeButtons_left">
+            <CloseIcon onClick={(dir) => swiped(property, dir)} />
+          </IconButton>
+          <IconButton className="swipeButtons_right">
+            <FavoriteIcon onClick={(dir) => swiped(property, dir)} />
+          </IconButton>
+        </div>
+      </div>
+    );
 }
 
 export default SearchResult

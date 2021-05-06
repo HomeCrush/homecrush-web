@@ -13,7 +13,7 @@ export default function FormElement({
   }) {
     const CustomTag = `${tag}`;
     return (
-      <div className="form_group">
+      <div className="FormElement">
         <label htmlFor={id}>
         <CustomTag
           type={type}

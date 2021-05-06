@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { editProfile, getUserInfo } from "../../services/UserService";
-import FormEditProfile from "./FormEditProfile";
 import Button from '@material-ui/core/Button';
+import FormElement from "./FormElement";
 
 export default function EditProfile() {
   const { id } = useParams();
   const { push } = useHistory();
   const [user, setUser] = useState();
-  const [image, setImage] = useState();
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export default function EditProfile() {
 
   return (
     <form onSubmit={onSubmit} className="container">
-      <FormEditProfile
+      <FormElement
         name="image"
         id="image"
         onChange={onChange}

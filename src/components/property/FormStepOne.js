@@ -38,13 +38,17 @@ const useStyles = makeStyles((theme) => ({
 
 const FormStepOne = () => {
   const classes = useStyles();
-  const { data, saveState } = useContext(FormContext)
+  const { saveState, completeFormStep } = useContext(FormContext)
   const { register, handleSubmit } = useForm();
   
   const onSubmit = (data) => {
     saveState(data)
+    completeFormStep() 
   }
 
+  const imageOnSave = (images) => {
+    saveState(images)
+  }
 
   return (
     <div className="FormStepOne">
@@ -105,7 +109,7 @@ const FormStepOne = () => {
               autoFocus
             />
             <Grid container justify="flex-end">
-              <DropZone />
+              <DropZone onSaving={imageOnSave}/>
             </Grid>
             <Button
               type="submit"

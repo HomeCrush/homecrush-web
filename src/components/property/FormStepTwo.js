@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 const FormStepTwo = () => {
   const classes = useStyles();
   const { data } = useContext(FormContext)
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit } = useForm();
   const { push } = useHistory();
 
 
@@ -80,16 +80,27 @@ const FormStepTwo = () => {
       childrenWelcome: false,
     });
 
-    const onSubmit = (formData) => {
+    const onSubmit = (values) => {
+      console.log(data)
       let property = {
         ...data,
-        ...formData
+        ...values
       }
       property.amenities = selectedAmenities
       property.rules = selectedRules
-      createProperty(property)
+
+      const formData = new FormData();
+
+      Object.entries(property).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      console.log(property)
+      console.log(formData)
+      createProperty(formData)
         .then(() =>  push("/profile"))
      };
+
+     
 
   return (
     <div className="FormStepTwo">

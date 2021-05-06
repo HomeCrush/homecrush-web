@@ -18,10 +18,10 @@ export const createProperty = (property) => {
     return  http.post(`/properties/create`, property);
 }
 
-export const reject =(id) => {
-  return http.post(`/properties/${id}/reject`, id);
+export const reject =(property) => {
+  return http.post(`/properties/${property.id}/reject`, property);
 }
 
-export const like =(id) => {
-  return http.post(`/properties/${id}/like`, id);
+export const like =(property) => {
+  return http.post(`/properties/${property.id}/like`, property);
 }

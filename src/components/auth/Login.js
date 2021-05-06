@@ -61,6 +61,7 @@ const Login = () => {
   const { register, handleSubmit } =  useForm()
 
   const onSubmit = (data) => {
+    console.log("entra")
     login(data)
       .then(response => {
         setAccessToken(response.access_token)
@@ -116,6 +117,7 @@ const Login = () => {
                 autoComplete="current-password"
               />
               <Button
+                type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"
