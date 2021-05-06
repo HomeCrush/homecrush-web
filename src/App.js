@@ -14,10 +14,13 @@ import Slider from "./components/PropertyView/Slider";
 import PropertyCard from "./components/PropertyView/PropertyCard";
 import FileUpload from "./components/FileUpload/FileUpload";
 import Crush from "./components/SwipeCards/Crush";
+import ContactCard from "./components/match/ContactInfo";
+
+
+
 
 
 import './App.css';
-import ContactCard from "./components/match/ContactInfo";
 
 
 function App() {
@@ -40,7 +43,7 @@ function App() {
         <Route exact path="/listados" component={ListOptions} />
         <Route exact path="/crush" component={Crush} />
         <Route exact path="/editprofile" component={FileUpload} />
-     <Route exact path="/contactcard" component={ContactCard} />  
+        <Route exact path="/contactcard" component={ContactCard} />   
       </Switch>
     </div>
   );
