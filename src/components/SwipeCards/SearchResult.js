@@ -6,12 +6,17 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import "./SwipeButtons.css";
 import './SearchResult.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./SearchPage.css"
 
 function SearchResult() {
 
     const [properties, setProperties] = useState([]);
 
-    const [currentProperty, setCurrentProperty] = useState(0); //es 0 porque este array quiero q me muestra la priemra properry
+    const [currentProperty, setCurrentProperty] = useState(0);
+    
+   //es 0 porque este array quiero q me muestra la priemra properry
    
     useEffect(() => {
         getProperties().then((properties) => setProperties(properties));
@@ -29,7 +34,19 @@ function SearchResult() {
             })        
         }
         else {
-            like(property).then(() => {
+            like(property).then((response) => {
+              console.log(response.status)
+                if (response.status === "match") {
+                  toast.success("🔥You have a Crush!", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+                }
                 if(currentProperty < properties.length - 1) {
                     setCurrentProperty(currentProperty + 1);
                      } else {
@@ -44,10 +61,10 @@ function SearchResult() {
     }
    const property = properties[currentProperty]
  //alert
-    if(//propiedaddos )
     
     return (
       <div className="searchResult">
+        <ToastContainer />
         <div className="searchResult_cardContainer">
           <TinderCard
             className="swipe"

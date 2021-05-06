@@ -1,7 +1,7 @@
 .profile{ 
     background-color: #fff;
     width: 300px;
-    height: 100vh;
+    height: 80vh;
     box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     margin-left: auto;
@@ -31,7 +31,8 @@
 
 .lower_container_profile{
     margin-top: 60px;
-    height: 100vh;
     background: white;
     text-align: center;
+    padding-bottom: 25px;
 }
+

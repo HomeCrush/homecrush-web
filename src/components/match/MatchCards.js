@@ -3,7 +3,7 @@ import MatchCard from "./MatchCard";
 import '../profile/Card.css'
 import './MatchCard.css'
 
-const MatchCards = ({ properties}) => {
+const MatchCards = ({ properties }) => {
   return (
     <div className="Match_Cards">
       {properties.map((properties) => (

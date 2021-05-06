@@ -6,10 +6,9 @@ import SimpleTooltips from './Options'
 
 function Slider() {
     return (
-        <div>
+        <div className="Slider">
             <ImageSlider slides={SliderData} />
             <SimpleTooltips />
-
         </div>
     )
 }

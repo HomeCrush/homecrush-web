@@ -14,13 +14,12 @@ const Cards = ({ properties}) => {
     <div className="Cards">
       {properties.map((properties) => { 
 
-       /*if (properties.owner === user.id) {*/
-        return(        
-        <Card {...properties} key={properties.id} />
-      )
-       /* }*/
-        return null
-      })}
+       if (properties.owner === user.id) {
+          return <Card {...properties} key={properties.id} />
+      }
+          return null
+      })
+      }
     </div>
   );
 };

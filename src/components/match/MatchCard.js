@@ -6,8 +6,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   btn:{
     background: "#44A1A0",
-    margin: theme.spacing(1),
-    padding:theme.spacing(0),
+    margin: theme.spacing(2),
     color: "#fff",
     "&:hover": {
     background: "#0D5C63",
@@ -16,19 +15,32 @@ const useStyles = makeStyles((theme) => ({
 }
 }))
 
-export default function MatchCard ({ title, images }) {
+export default function MatchCard ({ title, images, id }) {
   const classes = useStyles();
 
     return (
-      <div className='match_card'>
-        <img src={images} className="card-img-top" alt={title} />
-        <div className='match_card_info'>
-        <Typography component="h6" variant="subtitle2">
-          {title}
+      <div className="match_card">
+        {
+          <div
+            className="cardImage"
+            style={{
+              background: `url('${images}')`,
+            }}
+          ></div>
+        }
+        <div className="match_card_info">
+          <Typography component="h6" variant="subtitle2">
+            {title}
           </Typography>
         </div>
-        <Button className={classes.btn} size="small" color="primary" component={RouterLink} to="/propertycard">
-            View
+        <Button
+          className={classes.btn}
+          size="small"
+          color="primary"
+          component={RouterLink}
+          to={`/property/${1223}`}
+        >
+          View
         </Button>
       </div>
     );

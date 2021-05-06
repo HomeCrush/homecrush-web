@@ -27,6 +27,6 @@ export const like =(property) => {
   return http.post(`/properties/${property.id}/like`, property);
 }
 
-export const matchList =(property) => {
-  return http.get(`properties/matchlist`, property);
+export const matchList =() => {
+  return http.get(`properties/matchlist`);
 }

@@ -10,7 +10,6 @@ const PropertyForm = () => {
    const { formStep } = useContext(FormContext)
     return (
       <div className="PropertyForm">
-        <p>{String(formStep)}</p>
         {formStep === 0 && <FormStepOne />}
         {formStep === 1 && <FormStepTwo />}
       </div>
