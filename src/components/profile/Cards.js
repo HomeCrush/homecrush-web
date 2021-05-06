@@ -5,7 +5,10 @@ import './Card.css'
 
 const Cards = ({ properties}) => {
   const { user } = useContext(UserContext)
-  
+
+  if(!user){
+    return "loading..."
+  }
   
   return (
     <div className="Cards">

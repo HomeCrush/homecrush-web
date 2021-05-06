@@ -1,5 +1,4 @@
-import { IconButton } from "@material-ui/core";
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import React from 'react'
 
 
 export default function FormElement({

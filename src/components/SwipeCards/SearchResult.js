@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom"
 import { getProperties, like, reject } from "../../services/PropertiesService";
 import TinderCard from "react-tinder-card"
 import CloseIcon from "@material-ui/icons/Close";
@@ -21,7 +20,6 @@ function SearchResult() {
     const swiped = (property, dir) => {
 
         if(dir === "left"){
-           /*reject(id).then(( aqui va todo lo de abajo currentProperty) => setCurrentProperty(currentProperty + 1))*/
             reject(property).then(() => {
                 if(currentProperty < properties.length - 1) {
                     setCurrentProperty(currentProperty + 1);
@@ -31,8 +29,6 @@ function SearchResult() {
             })        
         }
         else {
-           /*like(id).then(() =>  setCurrentProperty((prevState) => prevState + 1 ))*/
-
             like(property).then(() => {
                 if(currentProperty < properties.length - 1) {
                     setCurrentProperty(currentProperty + 1);
@@ -67,10 +63,10 @@ function SearchResult() {
         </div>
         <div className="swipeButtons">
           <IconButton className="swipeButtons_left">
-            <CloseIcon onClick={(dir) => swiped(property, dir)} />
+            <CloseIcon onClick={() => swiped(property, "left")} />
           </IconButton>
           <IconButton className="swipeButtons_right">
-            <FavoriteIcon onClick={(dir) => swiped(property, dir)} />
+            <FavoriteIcon onClick={() => swiped(property, "right")} />
           </IconButton>
         </div>
       </div>

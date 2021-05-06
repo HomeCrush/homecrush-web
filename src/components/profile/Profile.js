@@ -34,7 +34,7 @@ function Profile() {
                
                 <div className="lower_container_profile">
 
-                <Typography component="subtitle2" variant="subtitle2">
+                <Typography component="h3" variant="subtitle2">
                 { user?.email }  
                 </Typography>   
                    <Cards properties={properties} />

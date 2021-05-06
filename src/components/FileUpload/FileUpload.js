@@ -1,14 +1,13 @@
-import { useEffect, useState, useContext } from "react";
-import { useHistory, useParams } from "react-router";
-import { editProfile, getUserInfo } from "../../services/UserService";
-import FormEditProfile from "./FormEditProfile";
+import { useContext } from "react";
+import { useHistory } from "react-router";
+import { editProfile } from "../../services/UserService";
 import { UserContext } from '../../context/UserContext';
+import FormElement from "./FormElement";
 
 
 export default function EditProfile() {
-  const { id } = useParams();
   const { push } = useHistory();
-   const { setUser } = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
 
 
   const onChange = (event) => {
@@ -19,7 +18,6 @@ export default function EditProfile() {
       value = [...event.target.selectedOptions].map((o) => o.value);
     }
     const formData = new FormData();
-    console.log("Esto es un fd", formData)
     formData.append("image", value);
       editProfile(formData)
         .then((user) => {
@@ -33,7 +31,7 @@ export default function EditProfile() {
 
   return (
     <div className="container">
-      <FormEditProfile
+      <FormElement
         master
         name="image"
         id="image"
