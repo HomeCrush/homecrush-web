@@ -8,10 +8,8 @@ import Login from './components/auth/Login';
 import SearchPage from './components/SwipeCards/SearchPage';
 import ListOptions from "./components/PropertyView/ListOptions";
 
-import Profile from "./Components/profile/Profile";
+import Profile from "./components/profile/Profile";
 import PropertyForm from "./components/property/PropertyForm";
-
-import SignUp from "./components/auth/SignUp";
 import ProfilePicture from "./components/profile/ProfilePicture";
 import MatchProfile from "./components/match/MatchProfile";
 import Slider from "./components/PropertyView/Slider";
@@ -23,6 +21,7 @@ import { getAccessToken } from "./Store/AccessTokenStore";
 import FileUpload from "./components/FileUpload/FileUpload";
 import Crush from "./components/SwipeCards/Crush";
 import './App.css';
+import ContactCard from "./components/match/ContactInfo";
 
 
 function App() {
@@ -44,6 +43,7 @@ function App() {
           <Route exact path="/listados" component={ListOptions} />     
           <Route exact path="/crush" component={Crush} />  
           <Route exact path="/editprofile" component={FileUpload} />  
+          <Route exact path="/contactcard" component={ContactCard} />  
         </Switch>
     </div>
   );

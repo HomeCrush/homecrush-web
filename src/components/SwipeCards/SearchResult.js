@@ -22,23 +22,23 @@ function SearchResult() {
 
         if(dir === "left"){
            /*reject(id).then(( aqui va todo lo de abajo currentProperty) => setCurrentProperty(currentProperty + 1))*/
-            //reject(id).then(() => {
+            reject(id).then(() => {
                 if(currentProperty < properties.length - 1) {
                     setCurrentProperty(currentProperty + 1);
                 } else {
                     setCurrentProperty(0);
                 }
-            //})        
+            })        
         }
         else {
            /*like(id).then(() =>  setCurrentProperty((prevState) => prevState + 1 ))*/
-            //like(id).then(() => {
+            like(id).then(() => {
                 if(currentProperty < properties.length - 1) {
                     setCurrentProperty(currentProperty + 1);
                      } else {
                     setCurrentProperty(0);
             }  
-        //})
+        })
         }
      }
 
