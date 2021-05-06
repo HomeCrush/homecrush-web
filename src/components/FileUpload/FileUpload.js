@@ -8,7 +8,8 @@ import { UserContext } from '../../context/UserContext';
 export default function EditProfile() {
   const { id } = useParams();
   const { push } = useHistory();
-  const { setUser } = useContext(UserContext)
+   const { setUser } = useContext(UserContext)
+
 
   const onChange = (event) => {
     let value = event.target.value;
@@ -30,10 +31,10 @@ export default function EditProfile() {
     });
   };
 
-
   return (
     <div className="container">
       <FormEditProfile
+        master
         name="image"
         id="image"
         onChange={onChange}

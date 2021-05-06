@@ -12,6 +12,7 @@ class DropZone extends Component {
     };
   }
 
+
   handleClose() {
     this.setState({
       open: false,
@@ -19,7 +20,11 @@ class DropZone extends Component {
   }
 
   handleSave(files) {
+    console.log(files)
     //Saving files to state for further use and closing Modal.
+    this.props.onSaving({
+      images: files[0]
+    })
     this.setState({
       files: files,
       open: false,

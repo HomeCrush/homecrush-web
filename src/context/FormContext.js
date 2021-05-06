@@ -12,17 +12,18 @@ export const FormContextProvider = ({ children }) => {
    };
 
   const saveState = (values) => {
-      completeFormStep()
-      return setData(prevData => ({
+      return setData(prevData => {
+        return ({
           ...prevData,
           ...values
-      }))
+      })})
   }
 
   const value = {
     formStep,
     saveState,
-    data
+    data,
+    completeFormStep
   };
 
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
