@@ -33,7 +33,7 @@ export default function EditProfile() {
 
   return (
     <div className="container">
-      <FormEditProfile
+      <FormElement
         master
         name="image"
         id="image"
