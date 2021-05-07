@@ -12,6 +12,9 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import IconLabelButtons from './Bnt'
+import Typography from '@material-ui/core/Typography';
+import CardContent from '@material-ui/core/CardContent';
+import SimpleTooltips from './Options'
 
 
 const ImageSlider = ({ slides }) => {
@@ -54,9 +57,22 @@ const ImageSlider = ({ slides }) => {
       })}
       </CardActionArea>
       <CardActions>
-     < IconLabelButtons />
+      <IconLabelButtons />
       </CardActions>
-    </Card >
+      <CardContent >
+      <Typography gutterBottom variant="h6" component="h6">
+      Titulo
+      </Typography>
+      <Typography variant="subtitle2" component="subtitle2">
+       Londres
+      </Typography>
+      <Typography variant="body2" color="textSecondary" component="p">
+            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+            across all continents except Antarctica
+          </Typography>
+    </CardContent>
+      <SimpleTooltips />
+    </Card>
         
   );
 };

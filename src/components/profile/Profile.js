@@ -9,16 +9,15 @@ import { UserContext } from '../../context/UserContext';
 import { Link as RouterLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme) => ({
-  btn:{
-    background: "#44A1A0",
-    margin: theme.spacing(1),
-    padding:theme.spacing(0),
-    color: "#fff",
-    "&:hover": {
-    background: "#0D5C63",
-    color: "#fff",
-  }
+const useStyles = makeStyles((theme) => ({  btn:{
+  background: "#44A1A0",
+  margin: theme.spacing(0.5),
+  marginBottom: theme.spacing(2),
+  color: "#fff",
+  "&:hover": {
+background: "#0D5C63",
+color: "#fff"
+}
 }
 }))
 

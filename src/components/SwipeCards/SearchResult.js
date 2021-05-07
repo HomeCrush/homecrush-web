@@ -48,8 +48,6 @@ function SearchResult() {
     }
    const property = properties[currentProperty]
  //alert
-    if(//propiedaddos )
-    
     return (
       <div className="searchResult">
         <div className="searchResult_cardContainer">

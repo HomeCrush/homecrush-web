@@ -19,6 +19,8 @@ import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import ChildFriendlyIcon from '@material-ui/icons/ChildFriendly';
 import WeekendIcon from '@material-ui/icons/Weekend';
 import Chip from '@material-ui/core/Chip';
+import SingleBedIcon from '@material-ui/icons/SingleBed';
+import KingBedIcon from '@material-ui/icons/KingBed';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,57 +48,71 @@ export default function SimpleTooltips() {
         icon={<LocalHotelIcon />}
         label="Rooms: 3"
         onClick={handleClick}
-      />
-      <Chip
+   />
+   <Chip
+       variant="outlined"
+       size="small"
+       icon={<SingleBedIcon />}
+       label="Single bed: 2"
+       onClick={handleClick}
+    />
+   <Chip
+       variant="outlined"
+       size="small"
+       icon={<KingBedIcon />}
+       label="Double bed: 3"
+       onClick={handleClick}
+    />
+    <Chip
       variant="outlined"
       size="small"
       icon={<BathtubIcon />}
       label="BathroomRooms: 2"
       onClick={handleClick}
-     />
-      <Chip
+    />
+    <Chip
       variant="outlined"
       size="small"
       icon={<TvIcon />}
       label="TV"
       onClick={handleClick}
      />
-      <Chip
+    <Chip
       variant="outlined"
       size="small"
       icon={<WifiIcon />}
       label="WiFi"
       onClick={handleClick}
-      />
-      <Chip
+    />
+    <Chip
       variant="outlined"
       size="small"
       icon={<KitchenIcon />}
       label="Fully equipped kitchen"
       onClick={handleClick}
     />
-      <Chip
+    <Chip
       variant="outlined"
       size="small"
       icon={<WeekendIcon />}
       label="Living Room"
       onClick={handleClick}
     />
-       <Chip
+     <Chip
      variant="outlined"
      size="small"
      icon={<EventSeatIcon />}
      label="Dining Room"
      onClick={handleClick}
     />
-        <Chip
+    <Chip
      variant="outlined"
      size="small"
      icon={<LocalLaundryServiceIcon />}
      label="Dish Washer"
      onClick={handleClick}
-    />
-    <Chip
+  />
+  <Chip
     variant="outlined"
     size="small"
     icon={<ComputerIcon />}
