@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
 }
 }));
 
-export default function MatchCard () {
+export default function MatchCard ({ images, title, location, description, }) {
   const classes = useStyles();
 
   return (
@@ -119,16 +119,17 @@ export default function MatchCard () {
          className={classes.image}
           component="img"
           height="140"
+          image={images}
         />
         <CardContent className={classes.sub}>
           <Typography gutterBottom variant="h6" component="h6">
-          Titulo
+          {title}
           </Typography>
           <Typography variant="h6" component="subtitle2">
-           Londres
+           {location}
           </Typography>
           <Typography variant="h6" component="subtitle2">
-           Description
+           {description}
           </Typography>
         </CardContent>
       </CardActionArea>

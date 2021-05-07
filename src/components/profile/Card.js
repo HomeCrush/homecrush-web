@@ -89,11 +89,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'pink',
   },
   image: {
-    
-    
-    
-    
-    
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    objectFit:"cover",
+    width: 350,
   },
   icon:{
     paddingRight: theme.spacing(1),
@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
 }
 }));
 
-export default function CardProperty({ property }) {
+export default function CardProperty({ title, images, location }) {
   const classes = useStyles();
 
   return (
@@ -124,14 +124,14 @@ export default function CardProperty({ property }) {
          className={classes.image}
           component="img"
           height="140"
-          image={property?.images}
+          image={images}
         />
         <CardContent className={classes.sub}>
           <Typography gutterBottom variant="h6" component="h6">
-          Titulo
+          {title}
           </Typography>
           <Typography variant="h6" component="subtitle2">
-           Londres
+           {location}
           </Typography>
         </CardContent>
       </CardActionArea>

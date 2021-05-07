@@ -41,8 +41,8 @@ function Profile() {
       }, []);
 
     useEffect(() => {
-      getProperties().then((prods) => {
-        setProperties(prods);
+      getProperties().then((properties) => {
+        setProperties(properties);
       });
     }, []);
      return (
