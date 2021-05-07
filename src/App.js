@@ -40,8 +40,10 @@ function App() {
         <Route exact path="/listados" component={ListOptions} />
         <Route exact path="/editprofile" component={FileUpload} />
         <Route exact path="/contactcard" component={ContactCard} />   
+        
       </Switch>
     </div>
+    
   );
 }
 
