@@ -106,9 +106,12 @@ const useStyles = makeStyles((theme) => ({
 }
 }));
 
-export default function MatchCard () {
-  const classes = useStyles();
 
+
+export default function MatchCard ({property}) {
+  const classes = useStyles();
+  
+ 
   return (
     <div className={classes.marginAutoContainer}>
        <div className={classes.marginAutoItem}> 
@@ -119,7 +122,7 @@ export default function MatchCard () {
           component="img"
           alt="Contemplative Reptile"
           height="140"
-          image="https://images.unsplash.com/photo-1554995207-c18c203602cb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
+          image={property?.images} 
           title="Contemplative Reptile"
         />
         <CardContent className={classes.sub}>
