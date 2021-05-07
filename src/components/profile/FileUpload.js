@@ -3,9 +3,30 @@ import { useHistory } from "react-router";
 import { editProfile } from "../../services/UserService";
 import { UserContext } from '../../context/UserContext';
 import FormElement from "./FormElement";
+import './Profile.css'
+import { makeStyles } from '@material-ui/core/styles';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import IconButton from '@material-ui/core/IconButton';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > span': {
+      margin: theme.spacing(2),
+    },
+  },
+  input: {
+    display: 'none',
+  },
+  icon: {
+    marginLeft: theme.spacing(10),
+    marginTop: theme.spacing(2),
+  },
+}));
 
 
 export default function EditProfile() {
+  const classes = useStyles();
+
   const { push } = useHistory();
   const { setUser } = useContext(UserContext)
 
@@ -31,13 +52,18 @@ export default function EditProfile() {
 
   return (
     <div className="container">
-      <FormElement
-        master
-        name="image"
-        id="image"
+      <input accept="image/*" 
+      className={classes.input} 
+      id="icon-button-file"
+       type="file" 
         onChange={onChange}
-        type="file"
-      />
+      /> 
+      <label htmlFor="icon-button-file">
+        <IconButton className={classes.icon} color="primary" aria-label="upload picture" component="span">
+          <PhotoCamera />
+        </IconButton>
+      </label>
+    
     </div>
   );
 }

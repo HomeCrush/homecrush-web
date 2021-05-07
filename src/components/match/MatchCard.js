@@ -88,6 +88,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundPosition: "center",
     objectFit:"cover",
+    width: 350,
   },
   icon:{
     paddingRight: theme.spacing(1),
@@ -117,19 +118,16 @@ export default function MatchCard () {
         <CardMedia 
          className={classes.image}
           component="img"
-          alt="Contemplative Reptile"
           height="140"
-          image="https://images.unsplash.com/photo-1554995207-c18c203602cb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
-          title="Contemplative Reptile"
         />
         <CardContent className={classes.sub}>
           <Typography gutterBottom variant="h6" component="h6">
           Titulo
           </Typography>
-          <Typography variant="subtitle2" component="subtitle2">
+          <Typography variant="h6" component="subtitle2">
            Londres
           </Typography>
-          <Typography variant="subtitle2" component="subtitle2">
+          <Typography variant="h6" component="subtitle2">
            Description
           </Typography>
         </CardContent>
