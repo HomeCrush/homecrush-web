@@ -50,3 +50,4 @@ export default function Card({ title, images, location }) {
     </div>
   );
 }
+
