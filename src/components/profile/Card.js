@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   marginAutoItem: {
-    margin: 'auto'
+    margin: 'auto',
   },
   sub:{
     marginBottom: theme.spacing(0),
@@ -89,11 +89,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'pink',
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    objectFit:"cover",
+    
+    
+    
+    
+    
   },
   icon:{
     paddingRight: theme.spacing(1),
@@ -112,27 +112,25 @@ const useStyles = makeStyles((theme) => ({
 }
 }));
 
-export default function CardProperty() {
+export default function CardProperty({ property }) {
   const classes = useStyles();
 
   return (
     <div className={classes.marginAutoContainer}>
-       <div className={classes.marginAutoItem}> 
+    <div className={classes.marginAutoItem}>
     <Card className={classes.root} >
       <CardActionArea>
         <CardMedia 
          className={classes.image}
           component="img"
-          alt="Contemplative Reptile"
           height="140"
-          image="https://images.unsplash.com/photo-1554995207-c18c203602cb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" 
-          title="Contemplative Reptile"
+          image={property?.images}
         />
         <CardContent className={classes.sub}>
           <Typography gutterBottom variant="h6" component="h6">
           Titulo
           </Typography>
-          <Typography variant="subtitle2" component="subtitle2">
+          <Typography variant="h6" component="subtitle2">
            Londres
           </Typography>
         </CardContent>
