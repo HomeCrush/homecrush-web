@@ -108,10 +108,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-export default function MatchCard ({property}) {
+export default function MatchCard ({ images, title, location, description, }) {
   const classes = useStyles();
-  
  
   return (
     <div className={classes.marginAutoContainer}>
@@ -122,18 +120,18 @@ export default function MatchCard ({property}) {
          className={classes.image}
           component="img"
           height="140"
-          image={property?.images} 
-          title="Contemplative Reptile"
+          image={images}
+
         />
         <CardContent className={classes.sub}>
           <Typography gutterBottom variant="h6" component="h6">
-          Titulo
+          {title}
           </Typography>
           <Typography variant="h6" component="subtitle2">
-           Londres
+           {location}
           </Typography>
           <Typography variant="h6" component="subtitle2">
-           Description
+           {description}
           </Typography>
         </CardContent>
       </CardActionArea>
