@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import TvIcon from "@material-ui/icons/Tv";
@@ -42,7 +42,7 @@ const IconButton = ({ iconKey, amenitieOnchange, selectedAmenities }) => {
   const SpecificIcon = components[iconKey];
 
   return (
-    <div classNamee="IconButton">
+    <div className="IconButton">
       <ToggleButton
         value="check"
         size="medium"

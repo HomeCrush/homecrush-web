@@ -61,12 +61,11 @@ const Login = () => {
   const { register, handleSubmit } =  useForm()
 
   const onSubmit = (data) => {
-    console.log("entra")
     login(data)
       .then(response => {
         setAccessToken(response.access_token)
         getUser()
-          .then(() => push("/"))        
+          .then(() => push("/profile"))        
       })
   }
 

@@ -12,6 +12,8 @@ class DropZone extends Component {
     };
   }
 
+  
+
 
   handleClose() {
     this.setState({
@@ -20,7 +22,6 @@ class DropZone extends Component {
   }
 
   handleSave(files) {
-    console.log(files)
     //Saving files to state for further use and closing Modal.
     this.props.onSaving({
       images: files[0]
@@ -41,7 +42,7 @@ class DropZone extends Component {
       
     return (
     
-        <div>
+        <div className="DropZone">
             <IconButton
             color="primary"
             onClick={this.handleOpen.bind(this)}

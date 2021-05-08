@@ -65,7 +65,7 @@ const SignUp = () => {
       .then(response => {
         setAccessToken(response.access_token)
         getUser()
-          .then(() => push("/search"))        
+          .then(() => push("/profile"))        
       })
   }
 

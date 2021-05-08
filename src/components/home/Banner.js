@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Banner.css';
 import '../../App.css';
 import { Button } from "@material-ui/core"
-import Search from './Search';
 import { Link as RouterLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -20,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Banner() {
   const classes = useStyles();
-  const [showSearch, setShowSearch] = useState (false);
   
   return (
     <div className='banner'>
@@ -29,7 +27,7 @@ function Banner() {
 
 
     <div className='banner-container'>
-      <img className='home_backgroud'/>
+      <img className='home_backgroud' alt="colonial house"/>
       <h1>ADVENTURE AWAITS</h1>
       <p>What are you waiting for?</p>
       <Button 

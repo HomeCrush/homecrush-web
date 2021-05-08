@@ -19,10 +19,15 @@ export const UserContextProvider = ({ children }) => {
         }
     },[])
 
+    const image = () => {
+        return user.image
+    }
+
     const value = {
         getUser,
         user,
-        setUser
+        setUser,
+        image
     }
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>

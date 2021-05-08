@@ -1,4 +1,3 @@
-import { get } from "react-hook-form";
 import { create } from "./BaseService";
 
 const http = create();
@@ -30,3 +29,11 @@ export const like =(property) => {
 export const matchList =() => {
   return http.get(`properties/matchlist`);
 }
+
+export const getMyProperties = () => {
+  return http.get(`properties/myproperties`);
+};
+
+export const deleteProperty = (id) => {
+  return http.delete(`properties/${id}/delete`);
+};

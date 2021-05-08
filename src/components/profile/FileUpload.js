@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useHistory } from "react-router";
 import { editProfile } from "../../services/UserService";
 import { UserContext } from '../../context/UserContext';
-import FormElement from "./FormElement";
 import './Profile.css'
 import { makeStyles } from '@material-ui/core/styles';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
@@ -18,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   icon: {
-    marginLeft: theme.spacing(10),
-    marginTop: theme.spacing(2),
+    marginLeft: theme.spacing(20),
+    marginTop: theme.spacing(1),
+    color:"#44a1a0"
   },
 }));
 
@@ -29,7 +29,6 @@ export default function EditProfile() {
 
   const { push } = useHistory();
   const { setUser } = useContext(UserContext)
-
 
   const onChange = (event) => {
     let value = event.target.value;

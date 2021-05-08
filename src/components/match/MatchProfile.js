@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import '../profile/Profile.css'
-import { getProperties, matchList } from "../../services/PropertiesService";
-import { getUserInfo } from "../../services/UserService"
+import { matchList } from "../../services/PropertiesService";
 import MatchCards from "./MatchCards";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -41,7 +40,6 @@ function MatchProfile() {
 
     useEffect(() => {
       matchList().then((propertiesResponse) => {
-        console.log(propertiesResponse)    
         setProperties(propertiesResponse);
       });
     }, []);

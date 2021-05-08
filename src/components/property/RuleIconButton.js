@@ -17,7 +17,7 @@ const RuleIconButton = ({ iconKey, ruleOnchange, selectedRules }) => {
   const SpecificIcon = components[iconKey];
 
   return (
-    <div classNamee="IconButton">
+    <div className="IconButton">
       <ToggleButton
         value="check"
         size="medium"

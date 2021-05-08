@@ -1,51 +1,3 @@
-/*import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import { Link as RouterLink } from 'react-router-dom';
-import Typography from "@material-ui/core/Typography";
-
-const useStyles = makeStyles((theme) => ({
-  btn:{
-    background: "#44A1A0",
-    margin: theme.spacing(2),
-    color: "#fff",
-    "&:hover": {
-    background: "#0D5C63",
-    color: "#fff",
-  }
-}
-}))
-
-export default function MatchCard ({ title, images, id }) {
-  const classes = useStyles();
-
-    return (
-      <div className="match_card">
-        {
-          <div
-            className="cardImage"
-            style={{
-              background: `url('${images}')`,
-            }}
-          ></div>
-        }
-        <div className="match_card_info">
-          <Typography component="h6" variant="subtitle2">
-            {title}
-          </Typography>
-        </div>
-        <Button
-          className={classes.btn}
-          size="small"
-          color="primary"
-          component={RouterLink}
-          to={`/property/${1223}`}
-        >
-          View
-        </Button>
-      </div>
-    );
-  }*/
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -108,40 +60,45 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function MatchCard ({ images, title, location, description, }) {
+export default function MatchCard ({ images, title, location, description, id }) {
   const classes = useStyles();
  
   return (
     <div className={classes.marginAutoContainer}>
-       <div className={classes.marginAutoItem}> 
-    <Card className={classes.root} >
-      <CardActionArea>
-        <CardMedia 
-         className={classes.image}
-          component="img"
-          height="140"
-          image={images}
-
-        />
-        <CardContent className={classes.sub}>
-          <Typography gutterBottom variant="h6" component="h6">
-          {title}
-          </Typography>
-          <Typography variant="h6" component="subtitle2">
-           {location}
-          </Typography>
-          <Typography variant="h6" component="subtitle2">
-           {description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions className={classes.btnCenter}>
-        <Button className={classes.btn} size="small" color="primary" component={RouterLink} to={`/property/${1223}`}>
-         View
-        </Button>
-      </CardActions>
-    </Card>
-    </div>
+      <div className={classes.marginAutoItem}>
+        <Card className={classes.root}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.image}
+              component="img"
+              height="140"
+              image={images[0]}
+            />
+            <CardContent className={classes.sub}>
+              <Typography gutterBottom variant="h6" component="h6">
+                {title}
+              </Typography>
+              <Typography variant="subtitle2" component="h6">
+                {location}
+              </Typography>
+              <Typography variant="body2" component="p">
+                {description}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions className={classes.btnCenter}>
+            <Button
+              className={classes.btn}
+              size="small"
+              color="primary"
+              component={RouterLink}
+              to={`/property/${id}`}
+            >
+              View
+            </Button>
+          </CardActions>
+        </Card>
+      </div>
     </div>
   );
 }

@@ -10,7 +10,6 @@ import Profile from "./components/profile/Profile";
 import PropertyForm from "./components/property/PropertyForm";
 import MatchProfile from "./components/match/MatchProfile";
 import Slider from "./components/PropertyView/Slider";
-import PropertyCard from "./components/PropertyView/PropertyCard";
 import FileUpload from "./components/profile/FileUpload";
 import ContactCard from "./components/match/ContactInfo";
 
@@ -25,7 +24,6 @@ function App() {
 
   return (
     <div className="App">
-
       <Navbar />
       <Switch>
         <Route exact path="/" component={Header} />
@@ -33,17 +31,16 @@ function App() {
         <Route exact path="/signin" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/properties/create" component={PropertyForm} />
+        <Route exact path="/property/:id/edit" component={PropertyForm} />
         <Route exact path="/search" component={SearchPage} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/properties/crush" component={MatchProfile} />
         <Route exact path="/property/:id" component={Slider} />
         <Route exact path="/listados" component={ListOptions} />
         <Route exact path="/editprofile" component={FileUpload} />
-        <Route exact path="/contactcard" component={ContactCard} />   
-        
+        <Route exact path="/contactcard" component={ContactCard} />
       </Switch>
     </div>
-    
   );
 }
 

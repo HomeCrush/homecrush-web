@@ -24,7 +24,7 @@ export default function IconLabelButtons() {
   return (
     <Box display="flex" justifyContent="flex-end">
       <Button
-        display="flex" justifyContent="flex-end"
+        display="flex" 
         variant="contained"
         color="primary"
         size="small"

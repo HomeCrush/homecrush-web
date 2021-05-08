@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useForm } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -10,6 +10,8 @@ import Container from "@material-ui/core/Container";
 
 import DropZone from "./DropZone";
 import { FormContext } from '../../context/FormContext';
+import { useParams } from 'react-router-dom';
+import { getProperty } from '../../services/PropertiesService';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,9 +40,30 @@ const useStyles = makeStyles((theme) => ({
 
 const FormStepOne = () => {
   const classes = useStyles();
-  const { saveState, completeFormStep } = useContext(FormContext)
+  const { saveState, completeFormStep, data } = useContext(FormContext)
   const { register, handleSubmit } = useForm();
+  const { id } =useParams()
+  const [loading, setLoading] = useState(false)
   
+ 
+  let createMode = !id
+  
+  useEffect(() => {
+    if (id) {
+      setLoading(true)
+      getProperty(id)
+        .then((property) => {
+            saveState(property)
+            setLoading(false)
+        })
+    }
+  },[id])
+
+  
+  if (loading) {
+    return "loading..."
+  }
+
   const onSubmit = (data) => {
     saveState(data)
     completeFormStep() 
@@ -49,6 +72,7 @@ const FormStepOne = () => {
   const imageOnSave = (images) => {
     saveState(images)
   }
+
 
   return (
     <div className="FormStepOne">
@@ -63,7 +87,7 @@ const FormStepOne = () => {
             />
           </Grid>
           <Typography component="h1" variant="h5">
-            Add your property
+            {createMode ? "Add your property" : "Edit your property"}
           </Typography>
           <form
             className={classes.form}
@@ -71,6 +95,7 @@ const FormStepOne = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <TextField
+              defaultValue={data.title}
               {...register("title")}
               variant="outlined"
               margin="normal"
@@ -83,6 +108,7 @@ const FormStepOne = () => {
               autoFocus
             />
             <TextField
+              defaultValue={data.description}
               {...register("description")}
               variant="outlined"
               multiline
@@ -97,6 +123,7 @@ const FormStepOne = () => {
               autoComplete="description"
             />
             <TextField
+              defaultValue={data.location}
               {...register("location")}
               variant="outlined"
               margin="normal"

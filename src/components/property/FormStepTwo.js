@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -10,7 +10,7 @@ import { FormContext } from '../../context/FormContext';
 import IconButton from "./IconButton"
 import RuleIconButton from './RuleIconButton';
 import { createProperty } from '../../services/PropertiesService';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 
@@ -43,10 +43,12 @@ const FormStepTwo = () => {
   const { data } = useContext(FormContext)
   const { register, handleSubmit } = useForm();
   const { push } = useHistory();
-
+  const { id } = useParams();
+  const [loading, setLoading] = useState(false);
+  
 
     const [selectedAmenities, setSelectedAmenities] = useState({
-      tv: true,
+      tv: false,
       wifi: false,
       equippedKitchen: false,
       livingRoom: false,
@@ -76,12 +78,11 @@ const FormStepTwo = () => {
 
     const [selectedRules, setSelectedRules] = useState({
       smokersWelcome: false,
-      petsWelcome: true,
+      petsWelcome: false,
       childrenWelcome: false,
     });
 
     const onSubmit = (values) => {
-      console.log(data)
       let property = {
         ...data,
         ...values
@@ -93,12 +94,28 @@ const FormStepTwo = () => {
 
       Object.entries(property).forEach(([key, value]) => {
         formData.append(key, value);
-      });
-      console.log(property)
-      console.log(formData)
+      });      
       createProperty(formData)
-        .then(() =>  push("/profile"))
+        .then(() =>  push("/search"))
      };
+
+
+    let createMode = !id;
+
+    useEffect(() => {
+      if (id) {
+        setLoading(true);
+        console.log(data.amenities)
+        setSelectedAmenities(data.amenities)
+        setSelectedRules(data.rules)        
+        setLoading(false);
+        ;
+      }
+    }, [id]); 
+    
+    if (loading) {
+      return "loading..."
+    }
 
      
 
@@ -115,7 +132,9 @@ const FormStepTwo = () => {
             />
           </Grid>
           <Typography component="h1" variant="h5">
-            Add your property step 2
+            {createMode
+              ? "Add your property step 2"
+              : "Edit your property step 2"}
           </Typography>
           <form
             className={classes.form}
@@ -131,6 +150,7 @@ const FormStepTwo = () => {
             >
               <Grid item xs={6}>
                 <TextField
+                  defaultValue={data.bedRooms}
                   {...register("bedRooms")}
                   variant="outlined"
                   fullWidth
@@ -150,6 +170,7 @@ const FormStepTwo = () => {
               </Grid>
               <Grid item xs={6}>
                 <TextField
+                  defaultValue={data.bathRooms}
                   {...register("bathRooms")}
                   variant="outlined"
                   fullWidth
@@ -177,6 +198,7 @@ const FormStepTwo = () => {
             >
               <Grid item xs={6}>
                 <TextField
+                  defaultValue={data.beds.singleBeds}
                   {...register("beds.singleBeds")}
                   variant="outlined"
                   fullWidth
@@ -196,6 +218,7 @@ const FormStepTwo = () => {
               </Grid>
               <Grid item xs={6}>
                 <TextField
+                  defaultValue={data.beds.doubleBeds}
                   {...register("beds.doubleBeds")}
                   variant="outlined"
                   fullWidth

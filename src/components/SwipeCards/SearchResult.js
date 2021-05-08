@@ -35,7 +35,6 @@ function SearchResult() {
         }
         else {
             like(property).then((response) => {
-              console.log(response.status)
                 if (response.status === "match") {
                   toast.success("🔥You have a Crush!", {
                     position: "bottom-right",
