@@ -30,7 +30,7 @@ export default function IconLabelButtons() {
         size="small"
         className={classes.button}
         startIcon={<CloseIcon />} 
-        component={RouterLink} to="/propertycard"
+        component={RouterLink} to="/profile"
       >
           Close
            </Button>

@@ -3,7 +3,7 @@ import { UserContext } from "../../context/UserContext";
 import CardProperty from "./Card";
 import './Card.css'
 
-const Cards = ({ properties }) => {
+const Cards = ({ properties, deleteFunction }) => {
   const { user } = useContext(UserContext)
 
   if(!user){
@@ -15,7 +15,7 @@ const Cards = ({ properties }) => {
       {properties.map((properties) => { 
 
        if (properties.owner === user.id) {
-          return <CardProperty {...properties} key={properties.id} />
+          return <CardProperty {...properties} deleteFunction={deleteFunction} key={properties.id} />
       }
           return null
       })

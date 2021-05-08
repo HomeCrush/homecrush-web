@@ -28,7 +28,7 @@ export default function EditProfile() {
   const classes = useStyles();
 
   const { push } = useHistory();
-  const { setUser } = useContext(UserContext)
+  const { setUser, getUser } = useContext(UserContext)
 
   const onChange = (event) => {
     let value = event.target.value;
@@ -41,8 +41,8 @@ export default function EditProfile() {
     formData.append("image", value);
       editProfile(formData)
         .then((user) => {
-           setUser(user)
-             push("/profile");
+           getUser()
+             
     })
     .catch((e) => {
       console.log(e)
