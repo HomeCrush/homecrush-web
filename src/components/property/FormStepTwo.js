@@ -40,28 +40,17 @@ const useStyles = makeStyles((theme) => ({
 
 const FormStepTwo = () => {
   const classes = useStyles();
-  const { data, setData, setFormStep } = useContext(FormContext)
+  const { data } = useContext(FormContext)
   const { register, handleSubmit } = useForm();
   const { push } = useHistory();
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   
-
+  
     const [selectedAmenities, setSelectedAmenities] = useState({
-      tv: false,
-      wifi: false,
-      equippedKitchen: false,
-      livingRoom: false,
-      dinningRoom: false,
-      workArea: false,
-      courtyard: false,
-      jacuzzi: false,
-      pool: false,
-      washingMachine: false,
-      parking: false,
-      gym: false,
     });
-
+    
+    console.log("selected", selectedAmenities)
     const amenitieOnchange = (key) => {
       setSelectedAmenities((prev) => ({
         ...prev,
@@ -88,24 +77,26 @@ const FormStepTwo = () => {
         ...values
       }
       property.amenities = selectedAmenities
+      console.log("prop", property.amenities)
       property.rules = selectedRules
-      console.log(property)
+
       const formData = new FormData();
 
       Object.entries(property).forEach(([key, value]) => {
-        formData.append(key, value);
-      });      
+        if(key !== "images") {
+          formData.append(key, value);
+        }
+      });   
+      for (let i = 0 ; i < property.images.length ; i++) {
+        formData.append("images", property.images[i]);
+    }   
       createProperty(formData)
-        .then(() =>  {
-          push("/search")
-          setFormStep(0)
-          setData({})
-
-        })
+        .then(() =>  push("/search"))
      };
 
 
     let createMode = !id;
+     console.log("esto es data", data)
 
     useEffect(() => {
       if (id) {
@@ -203,7 +194,7 @@ const FormStepTwo = () => {
             >
               <Grid item xs={6}>
                 <TextField
-                  defaultValue={data.beds?.singleBeds}
+                  defaultValue={data?.beds}
                   {...register("beds.singleBeds")}
                   variant="outlined"
                   fullWidth
@@ -223,7 +214,7 @@ const FormStepTwo = () => {
               </Grid>
               <Grid item xs={6}>
                 <TextField
-                  defaultValue={data.beds?.doubleBeds}
+                  defaultValue={data?.beds}
                   {...register("beds.doubleBeds")}
                   variant="outlined"
                   fullWidth

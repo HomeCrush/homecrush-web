@@ -7,9 +7,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { deleteProperty } from '../../services/PropertiesService';
+import { getMyProperties, deleteProperty } from '../../services/PropertiesService';
 import { ToastContainer } from 'react-toastify';
 import { deleteMessage } from '../toasts/messages';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -60,13 +62,9 @@ const useStyles = makeStyles((theme) => ({
 }
 }));
 
-export default function CardProperty({ title, images, location, description, id }) {
+export default function CardProperty({ title, images, location, description, id, deleteFunction }) {
   const classes = useStyles();
   
-  const deleteProp = (id) => {
-    deleteProperty(id)
-      .then(() => deleteMessage())
-  }
   return (
     <div className={classes.marginAutoContainer}>
       <ToastContainer />
@@ -80,6 +78,7 @@ export default function CardProperty({ title, images, location, description, id 
               height="140"
               image={images[0]}
             />
+            {console.log(images)}
             <CardContent className={classes.sub}>
               <Typography gutterBottom variant="h6" component="h6">
                 {title}
@@ -101,10 +100,19 @@ export default function CardProperty({ title, images, location, description, id 
               className={classes.btn}
               size="small"
               color="primary"
-              onClick={() => deleteProp(id)}
+              onClick={() => deleteFunction(id)}
             >
               Delete
             </Button>
+            <Button
+             className={classes.btn}
+             size="small"
+             color="primary"
+             component={RouterLink}
+             to={`/property/${id}`}
+           >
+             View
+           </Button>
           </CardActions>
         </Card>
       </div>

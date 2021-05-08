@@ -17,6 +17,7 @@ import ContactCard from "./components/match/ContactInfo";
 
 
 
+
 import './App.css';
 
 
@@ -39,6 +40,7 @@ function App() {
         <Route exact path="/listados" component={ListOptions} />
         <Route exact path="/editprofile" component={FileUpload} />
         <Route exact path="/contactcard" component={ContactCard} />
+        <Route exact path="/slider" component={Slider} />
       </Switch>
     </div>
   );
