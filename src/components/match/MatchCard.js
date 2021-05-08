@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function MatchCard ({ images, title, location, description, id }) {
+export default function MatchCard ({ images, title, location, description, id, }) {
   const classes = useStyles();
  
   return (
