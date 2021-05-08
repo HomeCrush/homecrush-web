@@ -77,7 +77,7 @@ export default function SimpleTooltips({amenities, rules, beds}) {
   
 
   const amenitiesChips = Object.entries(amenities).map(([key, value]) => {
-    if (value === false) {
+    if (value === true) {
       const SpecificIcon = components[key];
       return (
         <Chip
@@ -93,7 +93,7 @@ export default function SimpleTooltips({amenities, rules, beds}) {
   });
 
   const rulesChips = Object.entries(rules).map(([key, value]) => {
-    if (value === false) {
+    if (value === true) {
       const SpecificIcon = components[key];
       return (
         <Chip

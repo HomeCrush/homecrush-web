@@ -72,7 +72,7 @@ function SearchResult() {
             onSwipe={(dir) => swiped(property, dir)}
           >
             <div
-              style={{ backgroundImage: `url(${property.images})` }}
+              style={{ backgroundImage: `url(${property.images[0]})` }}
               className="searchResultCard"
             >
               <h3>{property.title}</h3>

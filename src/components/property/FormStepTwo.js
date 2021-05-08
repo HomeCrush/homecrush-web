@@ -46,9 +46,20 @@ const FormStepTwo = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   
-  
-    const [selectedAmenities, setSelectedAmenities] = useState({
-    });
+  const [selectedAmenities, setSelectedAmenities] = useState({
+    tv: false,
+    wifi: false,
+    equippedKitchen: false,
+    livingRoom: false,
+    dinningRoom: false,
+    workArea: false,
+    courtyard: false,
+    jacuzzi: false,
+    pool: false,
+    washingMachine: false,
+    parking: false,
+    gym: false,
+  });
     
     console.log("selected", selectedAmenities)
     const amenitieOnchange = (key) => {
