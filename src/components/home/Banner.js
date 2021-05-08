@@ -27,7 +27,6 @@ function Banner() {
 
 
     <div className='banner-container'>
-      <img className='home_backgroud' alt="colonial house"/>
       <h1>ADVENTURE AWAITS</h1>
       <p>What are you waiting for?</p>
       <Button 

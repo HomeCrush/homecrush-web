@@ -23,7 +23,9 @@ export const FormContextProvider = ({ children }) => {
     formStep,
     saveState,
     data,
-    completeFormStep
+    completeFormStep,
+    setFormStep,
+    setData
   };
 
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;

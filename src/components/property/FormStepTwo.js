@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 const FormStepTwo = () => {
   const classes = useStyles();
-  const { data } = useContext(FormContext)
+  const { data, setData, setFormStep } = useContext(FormContext)
   const { register, handleSubmit } = useForm();
   const { push } = useHistory();
   const { id } = useParams();
@@ -89,14 +89,19 @@ const FormStepTwo = () => {
       }
       property.amenities = selectedAmenities
       property.rules = selectedRules
-
+      console.log(property)
       const formData = new FormData();
 
       Object.entries(property).forEach(([key, value]) => {
         formData.append(key, value);
       });      
       createProperty(formData)
-        .then(() =>  push("/search"))
+        .then(() =>  {
+          push("/search")
+          setFormStep(0)
+          setData({})
+
+        })
      };
 
 
@@ -198,7 +203,7 @@ const FormStepTwo = () => {
             >
               <Grid item xs={6}>
                 <TextField
-                  defaultValue={data.beds.singleBeds}
+                  defaultValue={data.beds?.singleBeds}
                   {...register("beds.singleBeds")}
                   variant="outlined"
                   fullWidth
@@ -218,7 +223,7 @@ const FormStepTwo = () => {
               </Grid>
               <Grid item xs={6}>
                 <TextField
-                  defaultValue={data.beds.doubleBeds}
+                  defaultValue={data.beds?.doubleBeds}
                   {...register("beds.doubleBeds")}
                   variant="outlined"
                   fullWidth

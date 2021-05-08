@@ -24,7 +24,7 @@ class DropZone extends Component {
   handleSave(files) {
     //Saving files to state for further use and closing Modal.
     this.props.onSaving({
-      images: files[0]
+      images: files
     })
     this.setState({
       files: files,
