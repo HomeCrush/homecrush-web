@@ -7,7 +7,6 @@ import { UserContext } from '../../context/UserContext';
 import { Link as RouterLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import EditProfile from './FileUpload';
-import { ToastContainer } from 'react-toastify';
 import { deleteMessage } from '../toasts/messages';
 
 import './Profile.css'

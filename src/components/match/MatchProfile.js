@@ -35,20 +35,21 @@ const useStyles = makeStyles((theme) => ({
 function MatchProfile() {
     const classes = useStyles();
     const { user } = useContext(UserContext)
-
     const [properties, setProperties] = useState([]);
-
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
+      setLoading(true)
       matchList().then((propertiesResponse) => {
         setProperties(propertiesResponse);
+        setLoading(false);
       });
     }, []);
 
-    if (!user) {
+    if (loading) {
       return "loading..."
     }
                            
-
+    console.log(properties)
      return (
        <div className="profile">
          <div className="upper_container_profile">

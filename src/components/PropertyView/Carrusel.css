@@ -55,6 +55,13 @@
     transform: scale(1.08);
   }
 
+  .buttonsContainer {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
 
   @media screen and  (min-width:320px) and (max-width:480x) {
     image{

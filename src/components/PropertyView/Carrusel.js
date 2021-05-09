@@ -11,7 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 import SimpleTooltips from './Options'
 
 
-const ImageSlider = ({title, location, description, images, amenities, rules, beds}) => {
+const ImageSlider = ({title, location, description, owner, images, amenities, rules, beds}) => {
   const [current, setCurrent] = useState(0);
   const length = images?.length;
   const nextSlide = () => {
@@ -51,13 +51,14 @@ const ImageSlider = ({title, location, description, images, amenities, rules, be
           );
         })}
       </CardActionArea>
-      <CardActions>
-        <IconLabelButtons />
+      <CardActions className="buttonsContainer">
+        <IconLabelButtons destiny={`/properties/crush`} label={"close"} />
+        <IconLabelButtons destiny={`mailto:${owner.email}`} label={"contact"} />
       </CardActions>
       <CardContent>
         <Typography gutterBottom variant="h6" component="h6">
           {title}
-        </Typography>
+        </Typography>        
         <Typography variant="subtitle2" component="h6">
           {location}
         </Typography>
@@ -65,7 +66,7 @@ const ImageSlider = ({title, location, description, images, amenities, rules, be
           {description}
         </Typography>
       </CardContent>
-      <SimpleTooltips amenities={amenities} rules={rules} beds={beds}/>
+      <SimpleTooltips amenities={amenities} rules={rules} beds={beds} />
     </Card>
   );
 };

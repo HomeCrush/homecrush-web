@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function MatchCard ({ images, title, location, description, id, }) {
+export default function MatchCard ({ images, title, location, description, id, owner  }) {
   const classes = useStyles();
  
   return (
@@ -77,7 +77,7 @@ export default function MatchCard ({ images, title, location, description, id, }
             <CardContent className={classes.sub}>
               <Typography gutterBottom variant="h6" component="h6">
                 {title}
-              </Typography>
+              </Typography>              
               <Typography variant="subtitle2" component="h6">
                 {location}
               </Typography>

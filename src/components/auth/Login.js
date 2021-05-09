@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: "url(https://source.unsplash.com/featured/?chalets)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   form: {
-    width: "100%", 
+    width: "100%",
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
       background: "#0D5C63",
     },
   },
-  icon:{
-    height:100
-  }
+  icon: {
+    height: 100,
+  },
 }));
 
 const Login = () => {
