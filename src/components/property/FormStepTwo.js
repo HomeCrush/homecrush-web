@@ -9,7 +9,7 @@ import Container from "@material-ui/core/Container";
 import { FormContext } from '../../context/FormContext';
 import IconButton from "./IconButton"
 import RuleIconButton from './RuleIconButton';
-import { createProperty } from '../../services/PropertiesService';
+import { createProperty, editProperty } from '../../services/PropertiesService';
 import { useHistory, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 const FormStepTwo = () => {
   const classes = useStyles();
-  const { data } = useContext(FormContext)
+  const { data, setFormStep, setData } = useContext(FormContext);
   const { register, handleSubmit } = useForm();
   const { push } = useHistory();
   const { id } = useParams();
@@ -100,14 +100,26 @@ const FormStepTwo = () => {
       });   
       for (let i = 0 ; i < property.images.length ; i++) {
         formData.append("images", property.images[i]);
-    }   
+    } 
+    if (id) {
+      editProperty(formData, id)
+        .then(() => {
+          push("/profile")
+          setFormStep(0)
+          setData({})
+        }) 
+    } else {
       createProperty(formData)
-        .then(() =>  push("/search"))
-     };
+        .then(() => {
+          push("/search")
+          setFormStep(0);
+          setData({});
+        })
+    } 
+    };
 
 
     let createMode = !id;
-     console.log("esto es data", data)
 
     useEffect(() => {
       if (id) {
