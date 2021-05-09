@@ -114,6 +114,7 @@ const FormStepTwo = () => {
           push("/search")
           setFormStep(0);
           setData({});
+          
         })
     } 
     };
